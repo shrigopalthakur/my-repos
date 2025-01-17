@@ -1,1 +1,37 @@
-hwllo-world
+
+Hi ma'am,
+setup of git and github and push the files on github account and practices of linux commands like - mkdir touch cp mv cat top ps
+
+please check my github account-  
+
+sudo apt-get update
+    2  which git
+    3  git --version
+    4  apt install git
+    5  git init
+    6  ls .
+    7  ls -a
+    8  git status
+    9  git add .
+   10  git status
+   11  git commit -m "first commit"
+   12* git config --global user.email "shrigopalthakur81@gmail.com"
+   13  git commit -m "first commit"
+   14  git branch -M main
+   15  git push -u origin main
+   16  history 
+   17  git config --list
+   18  ls
+   19  mkdir ravi
+   20  cd ravi/
+   21  echo "this is my new file" > mmm
+   22  ls
+   23  cd
+   24  touch ram
+   25  echo hwllo-world > ram
+   26  git status
+   27  git add .
+   28  git commit -m "new file"
+   29  git push -u origin main
+   30  history
+
