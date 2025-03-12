@@ -1,7 +1,60 @@
+location /sv/doctor/dr-vipin-arora {
+    add_header X-Robots-Tag "noindex, nofollow";
+}
 
 
 
+location = /403.html {
+        add_header X-Robots-Tag "noindex, nofollow";
+        root /var/www/html;
+        internal;
+    }
+
+
+add_header X-Robots-Tag "noindex, nofollow";
+
+/var/www/html/403.html <-- is page pe set kiya tha ye
+
+<html>
+<head>
+  <meta name="robots" content="noindex, nofollow">
+  <title>Page Not Found</title>
+</head>
+<body>
+  <h1>404 - Page Not Found</h1>
+  <p>The page you are looking for does not exist.</p>
+</body>
+</html>
+
+
+
+d2tcozxd89mokh.cloudfront.net
+
+
+Use nslookup (Domain Name System Lookup)   <--- domain name kis ip pr point kar raha h ya ye domain name kaha pr piont kar raha h ye check karne ke liye
+nslookup campaign.medflick.com
+dig campaign.medflick.com
+https://campaign.medflick.com/
+
+ host 68.178.162.210
+210.162.178.68.in-addr.arpa domain name pointer 210.162.178.68.host.secureserver.net.
+
+
+nslookup campaign.medflick.com  <-- ye domain kis ip pe point kar raha h dekhne ke liye
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+
+Non-authoritative answer:
+Name:   campaign.medflick.com
+Address: 68.178.162.210
+ 
+https://aws.plainenglish.io/attach-ssl-certificate-and-domain-to-your-ec2-instance-using-route-53-and-aws-acm-28c9844a1a88
+https://aws.plainenglish.io/attach-ssl-certificate-and-domain-to-your-ec2-instance-using-route-53-and-aws-acm-28c9844a1a88
+https://www.showwcase.com/article/35459/building-a-resilient-three-tier-architecture-on-aws-with-deploying-mern-stack-application
+https://www.showwcase.com/article/35459/building-a-resilient-three-tier-architecture-on-aws-with-deploying-mern-stack-application
 *************************************************
+C:\Users\Dell\Videos\Captures    <-- screenshots kaha pr store hote h ye uska path h
+************************************************
 /var/www/campaign.medflick.com   <-------  ye landing page hai medflick  ka jab bhi koi new landing page create karna ho to yha pr karna
 
 aur haa passwrd tum change karlena 
@@ -56,8 +109,14 @@ Header set X-Robots-Tag "noindex, nofollow"
 
 ==> Nginx Configuration Mein Example: Agar aap Nginx server use karte hain, toh 404 error page par noindex meta tag set karne ke liye Nginx configuration mein kuch changes karne padenge. Aapko apne Nginx configuration file (e.g., /etc/nginx/sites-available/default) mein yeh add karna hoga:
 
-nginx
-Copy
+    location = /403.html {
+        root /var/www/html;
+        internal;
+    }
+
+    if ($http_user_agent ~* "AhrefsBot") {
+        return 403;
+    }
 error_page 404 /404.html;
 
 location = /404.html {
@@ -110,19 +169,24 @@ cd /var/www/html/medflick.com/Medflick-new-Home/public/  <------- Landing page p
 
 
 *******************************************
-MedAdmin8050   <------ Password of Ubuntu User server ip :- 13.201.11.181    <--- Public ip
-                                                            172.31.47.153    <--- Private ip
-copy karke paste karna h 
-select normal
-
-
-Host:-  13.201.11.181
-username: ubuntu
-password: MedAdmin8050
+Mail i'd :- shrigopal@wikreate.in
+Password :- Shri@8279
+        
+        172.31.47.153    <--- Private ip
+Host:-  13.201.11.181    <--- Public ip
+username:- ubuntu
+password:- MedAdmin8050
 
 Aws Account Details :-
 Email id :- internal@medflick.com
-password :- ()7b56^&$DmkDWO78^&
+Password :- ()7b56^&$DmkDWO78^&
+
+Email id :- it@eternalheart.org
+Password :- Admin@2024AWS$
+
+https://certpanel.com/         <--- CertPanel m Login karne ke liye iss website pe jakar inn mail or password se connect karna h
+Email id :- sudiip@wikreate.in
+Password :- Ehcc@1234**
 
 Godaddy Account Details :-
 i'd  :- 100363075
@@ -132,18 +196,18 @@ Pass :- Feb2025!20@909
 ssh -i medflick_stage.pem ubuntu@13.201.11.181   <--- login by pem file or user-name or password
 pass :- MedAdmin8050
 
-ssh -p 50489 ubuntu@160.30.207.37                <--- login by port no. or user-name or password
+ssh -p 50489 ubuntu@160.30.207.37                Server 1 Details  <--- login by port no. or user-name or password
 pass :- Tm3c6v23VHXsf9gDVwcP
 
-ssh -p 50489 ubuntu-lalit@160.30.207.38          <--- login by port no. or user-name or password
-pass :- 60canjfnGz8I>r1,hgjkk
+ssh -p 50489 ubuntu-lalit@160.30.207.38          Server 2 Details  <--- login by port no. or user-name or password
+pass :- 60canjfnGz8I>r1,hgjkk                    
 
 ***************************************************
  CODE KO LIVE KARNE KE LIYE :- jis folder ke andar code h jaise ki Medflick-new-Home/ <---ke andar to vahi jake ye steps follow karne h  ( Lekin inn steps ko dhyan se dekhna h or phir same to same aise hi karna h ).   
       
  2001  su ubuntu
  2002  cd /home/ubuntu
- 2003  sudo git clone -b main https://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@github.com/wikreate-Manish/Medflick-new-Home.git
+ 2003  sudo git clone -b main https://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@github.com/wikreate-Manish/Medflick-new-Home.git
  2004  ls
  2005  cd Medflick-new-Home/
  2006  ls
