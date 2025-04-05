@@ -1,0 +1,1716 @@
+[
+    {
+        "AllowedHeaders": [],
+        "AllowedMethods": [
+            "GET",
+            "PUT",
+            "POST",
+            "DELETE"
+        ],
+        "AllowedOrigins": [
+            "*"
+        ],
+        "ExposeHeaders": []
+    }
+]
+**********
+aws s3api put-object-acl --bucket justpresseducation --key "upload_photo/67ee63d9b23e1st-img.png" --acl public-read   <--- ye command chalayi thi iss error ko solve karne ke liye ( jo pdf m image generate nhi ho pa rahi thi ).
+*********
+[
+    {
+        "AllowedHeaders": [
+            "*"
+        ],
+        "AllowedMethods": [
+            "GET"
+        ],
+        "AllowedOrigins": [
+            "https://portal.justpress.in"
+        ],
+        "ExposeHeaders": [
+            "Content-Length",
+            "Content-Range",
+            "Content-Type"
+        ]
+    }
+]
+
+********
+[
+    {
+        "AllowedHeaders": [],
+        "AllowedMethods": [
+            "GET",
+            "PUT",
+            "POST",
+            "DELETE"
+        ],
+        "AllowedOrigins": [
+            "http://localhost:3000"
+        ],
+        "ExposeHeaders": []
+    }
+]
+*********
+
+List of Digital Minds Technologies Inc. Employees
+
+CREATE TABLE admission_laters (
+  id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  student_id varchar(255) NOT NULL,
+  user_id varchar(255) NOT NULL,
+  session_name varchar(255) DEFAULT NULL,
+  course_name varchar(255) DEFAULT NULL,
+  course_duration varchar(255) DEFAULT NULL,
+  academic_year varchar(255) DEFAULT NULL,
+  starting_date varchar(255) DEFAULT NULL,
+  annual_tui_fee_withot_scholorship varchar(255) DEFAULT NULL,
+  annual_hostel_feeding_fee_without_scholorship_nonveg varchar(255) DEFAULT NULL,
+  annual_hostel_feeding_fee_without_scholorship_veg varchar(255) DEFAULT NULL,
+  sch_annual_tui_fee varchar(255) DEFAULT NULL,
+  sch_annual_tui_fee_nonveg varchar(255) DEFAULT NULL,
+  other_charges varchar(255) DEFAULT NULL,
+  admission_date varchar(255) DEFAULT NULL,
+  created_at timestamp NULL DEFAULT NULL,
+  updated_at timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+# Disallow specific sitemaps
+
+sudo apt update                                           <----------------- SSL Lagane ki commands website pr               
+sudo apt install certbot python3-certbot-nginx
+sudo certbot --nginx -d noversehealthcare.com -d www.noversehealthcare.com
+sudo certbot --nginx -d campaign.noversehealthcare.com -d www.campaign.noversehealthcare.com
+
+
+864981746336
+user/Backdoor
+Bharat1@2023. 
+
+*******************************************
+( Backend ka server live karne ke liye :- pr isko dhyan se karna h iss format ka abhi test nhi huaa h )
+ 2022  su ubuntu
+ 2023  cd /home/ubuntu               <----------   Backend Server ko live karna --> JustpressBackend wale ko
+ 2024  ls
+ 2025  sudo git clone -b master https://@github.com/mani123456/education.git
+ 2026  ls
+ 2027  cd education/
+ 2028  ls
+ 2029  sudo cp -r app /var/www/html/justpressbackend/
+ 2030  sudo cp -r resources /var/www/html/justpressbackend/
+ 2031  sudo cp -r routes /var/www/html/justpressbackend/
+ 2032  sudo cp -r storage /var/www/html/justpressbackend/
+ 2033  ls
+ 2034  cd
+ 2035  sudo rm -rf education/
+ 2036  ls 
+ 2037  history
+******************************************
+SMTP credentials
+IAM user name
+ses-smtp-user.20250327-162754
+
+SMTP user name
+AKIAXYHNDW2BGYBYVYIE
+
+SMTP password
+BFK3xHBGGvPnwrB1nzXbH+rif+zV0GUrGUxDis09zM5t
+***************************************************
+
+AWS_DEFAULT_REGION=ap-south-1
+AWS_BUCKET=
+AWS_USE_PATH_STYLE_ENDPOINT=false
+*****************************************
+DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=education
+DB_USERNAME=root
+DB_PASSWORD=""
+****************************************
+Complete Example:
+1. Drop Table & Create:
+
+DROP TABLE IF EXISTS admission_laters;                 <-------------- Create Table in Database
+
+CREATE TABLE admission_laters (
+  id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  student_id varchar(255) NOT NULL,
+  user_id varchar(255) NOT NULL,
+  session_name varchar(255) DEFAULT NULL,
+  course_name varchar(255) DEFAULT NULL,
+  course_duration varchar(255) DEFAULT NULL,
+  academic_year varchar(255) DEFAULT NULL,
+  starting_date varchar(255) DEFAULT NULL,
+  annual_tui_fee_withot_scholorship varchar(255) DEFAULT NULL,
+  annual_hostel_feeding_fee_without_scholorship_nonveg varchar(255) DEFAULT NULL,
+  annual_hostel_feeding_fee_without_scholorship_veg varchar(255) DEFAULT NULL,
+  sch_annual_tui_fee varchar(255) DEFAULT NULL,
+  sch_annual_tui_fee_nonveg varchar(255) DEFAULT NULL,
+  other_charges varchar(255) DEFAULT NULL,
+  admission_date varchar(255) DEFAULT NULL,
+  created_at timestamp NULL DEFAULT NULL,
+  updated_at timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+2. Insert Data:
+
+INSERT INTO admission_laters (                         <-------------------- Create Column in Table
+  student_id, 
+  user_id, 
+  session_name, 
+  course_name, 
+  course_duration, 
+  academic_year, 
+  starting_date, 
+  annual_tui_fee_withot_scholorship, 
+  annual_hostel_feeding_fee_without_scholorship_nonveg, 
+  annual_hostel_feeding_fee_without_scholorship_veg, 
+  sch_annual_tui_fee, 
+  sch_annual_tui_fee_nonveg, 
+  other_charges, 
+  admission_date, 
+  created_at, 
+  updated_at
+) 
+VALUES 
+(
+  'S123', 
+  'U456', 
+  '2025-2026', 
+  'B.Tech', 
+  '4 years', 
+  '2025', 
+  '2025-08-15', 
+  '50000', 
+  '30000', 
+  '25000', 
+  '45000', 
+  '35000', 
+  '2000', 
+  '2025-06-01', 
+  NOW(), 
+  NOW()
+);
+*************************************
+ALTER TABLE admission_laters                        <-------- Single Column add karna Table m (admission_laters) iss m
+ADD COLUMN pdfUrl1 VARCHAR(500) DEFAULT NULL;
+
+*************************************
+CREATE TABLE representative_name (                       <----------- Create Table in Database justpressdatabase
+    id INT AUTO_INCREMENT PRIMARY KEY,  
+    user VARCHAR(500) NULL,             
+    agent VARCHAR(500) NULL
+);
+
+ALTER TABLE users                                        <-------- -- Add the column in 'users' table in of this name ( company_name ) in JustPressDatabase
+ADD COLUMN company_name VARCHAR(500) NULL,   
+ADD COLUMN representative_name VARCHAR(500) NULL;
+
+
+ALTER TABLE agents                                       <-------- -- Add the column in 'agent' table in of this name ( company_name ) in JustPressDatabase
+ADD COLUMN company_name VARCHAR(500) NULL,
+ADD COLUMN representative_name VARCHAR(500) NULL;
+
+ALTER TABLE agent                                        <-------- -- delete the column in 'agent' table in of this name ( company_name ) in JustPressDatabase
+DROP COLUMN company_name;                         
+
+CREATE USER 'justpressuser'@'localhost' IDENTIFIED BY 'just@8050';     <---- mysql user create karna with password
+DROP USER 'justpressuser'@'localhost';                                 <---- mysql user ko delete karna
+mysql -u justpressuser -p                     <---- mysql user se login karna
+CREATE DATABASE justpressdatabase;            <---- mysql m database create karna
+SHOW DATABASES;                               <---- mysql m database check karna ki kitne database h
+USE justpressdatabase;                        <---- mysql m database ka use karna ( kisi bhi database m jana ).
+source /home/ubuntu/uatwwplco_healthcare.sql  <------ database ke andar data ko upload karna
+SHOW TABLES;          <-- database ke andar tables ko dekhne ke liye
+SELECT * FROM leads;  <-- table ke andar kya data h usko dekhne ke liye
+DROP TABLE admission_laters;     <-- table ko delete karne ke liye database ke andar se
+DELETE FROM leads;    <-- table ke andar se uska data delete karna h to iss commands ka use karte h
+(  Specific Leads Ko Filter Karke Delete Karna: Agar aapko specific leads delete karni hain (jaise particular date ke baad aayi hui leads), to aap SQL query mein WHERE condition laga sakte hain:
+ #-->  DELETE FROM leads WHERE created_at < '2024-01-01';  )
+
+Agar aap kisi specific user ko apne naye database par access dena chahte hain, to aap user ke liye permissions set kar sakte hain. Jaise:
+(   GRANT ALL PRIVILEGES ON justpressdatabase.* TO 'justpressuser'@'localhost' IDENTIFIED BY 'yourpassword';  
+    FLUSH PRIVILEGES;          )
+
+mysqldump -u justpressuser -p justpressdatabase > justpressbackup_file.sql   <-------- mysql ke database ka backup create karne ke liye command run out from mysql 
+
+aws s3 cp s3://backup-justpress/sql-latest /home/ubuntu/    <---- aw
+*********************************************************
+aws s3 ls           <--- aws s3 bucket m kitni buckets bani hui h unko show karta h
+touch sql.sql       <--- aws s3 bucket m se koi file ya folder copy karna h server pr to uske liye server pr pahle file ya folder banana padta h (file ke lie file or folder ke liye folder)
+aws s3 cp s3://backup-justpress/ ./sql_table.sql               <---- aws s3 bucket se file ko copy karne ke liye server pr iss command ka use karte h
+aws s3 cp s3://backup-justpress/edu.zip /home/ubuntu/edu.zip   <---- aws s3 bucket se zip file ko server pr copy karne ke liye
+
+**************************************************************
+scp -i C:/Users/Dell/Downloads/justpress.pem -r C:/Users/Dell/Downloads/uatwwplco_healthcare.sql ubuntu@13.233.159.118:/home/ubuntu/    <--- local system se server pr files ko copy karna
+*************************************************************
+  66  sudo vi /etc/nginx/sites-available/justpressfrontend
+   67  sudo ln -s /etc/nginx/sites-available/justpressfrontend /etc/nginx/sites-enabled/
+   68  sudo nginx -t
+   69  sudo systemctl restart nginx
+   70  cd /var/www/html
+   71  ls
+   72  cd justpressfrontend/
+   73  ls
+   74  ll
+   75  cat /etc/nginx/sites-available/justpressfrontend
+   76  clear
+   77  npm install -g pm2
+   78  sudo npm install -g pm2
+   79  pm2 start npm --name "justpress" -- start
+   80  pm2 log
+   81  curl -I http://justpress.in
+   82  curl -I https://justpress.in
+   83  clear
+   84  ls
+   85  cd
+   86  sudo apt install certbot python3-certbot-nginx -y
+   87  sudo certbot --nginx -d justpress.in -d www.justpress.in
+   88  sudo vi /etc/nginx/sites-available/justpressfrontend
+   89  sudo certbot --nginx -d justpress.in -d www.justpress.in
+   90  sudo certbot --nginx -d justpress.in
+   91  sudo certbot certonly --nginx --cert-name justfpressfrontend -d justpress.in -d www.justpress.in
+   92  clear
+
+*******************************************************
+
+WEBSITE ke page m HEADER page m jake META tag add karna ya changes karna CLOUDFRONT ke DISTRIBUTIONS ke BEHAVIOURS m jake.
+method-1 :-
+
+location /sv/doctor/dr-vipin-arora ---> page pr 
+add_header m-->  X-Robots-Tag ke samne-->  "noindex, nofollow"; set karna taki koi user website pr aaye or website pr koi page access na ho paye to wo noindex, nofollow aa jaye jisse phir wo user aage koi page na khole.
+
+isko CLOUDFRONT --> DISTRIBUTIONS --> jis website m change karna h uske naam ke aage --> i'd pr click karke --> BEHAVIOURS --> CREATE BEHAVIOURS --> PATH PATTERN M --> /sv/doctor/dr-vipin-arora ORIGIN and ORIGIN GROUP m --> EC2 ko select karenge --> COMPRESS OBJECTS AUTOMATICALLY m --> yes --> Viewer protocol policy m --> HTTP and HTTPS --> Allowed HTTP methods m --> GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE ->iss par click karenge --> Restrict viewer access m --> no --> Cache key and origin requests m--> Cache policy and origin request policy (recommended) m--> cache policy m-->UseOriginCacheControlHeaders(recommended for ec2) -->Origin rquest policy m--> Allviewer(recommended for ec2) --> Response header policy m--> medflick-header-policy ye policy create karni padegi iske liye(add_header m-->  X-Robots-Tag ke samne-->  "noindex, nofollow"; set karne ke liye) --> policy m-->policy name m (medflick-header-policy ya kuchh bhi)--> Custom headers ke name m--> X-robots-Tag --> Value m--> noidex, nofollow --> click on Origin Override --> Save #ab response header policy m isko select karenge -->medflick-header-policy --> Save
+
+ab WEBSITE ke page m HEADER set ho jayega or inspect m jake network m jake refresh karenge to or (dr-vipin-arora) iss wale name pe click karenge to header ke section m aapko X-Robot-Tag ke samne noindex, nofollow likha huaa dikhai dega
+
+Method-2 :-
+domain name ke baad folder name ke baad kuchh bhi likh kar search kare website m to noindex, nofollow aaye baaki ka kuchh access nhi kar paye
+ubuntu@ip-172-31-47-153:/var/www/html/medflick.com/Medflick-new-Home/public$ cat robots.txt
+User-agent: *
+Allow:
+ubuntu@ip-172-31-47-153:/var/www/html/medflick.com/Medflick-new-Home/public$ cat robots.txt
+User-agent: *
+Allow:
+Disallow: /af/
+Disallow: /am/
+Disallow: /ar/
+Disallow: /az/
+Disallow: /be/
+Disallow: /bg/
+Disallow: /bn/
+Disallow: /bs/
+Disallow: /ca/
+Disallow: /ceb/
+Disallow: /co/
+Disallow: /cs/
+Disallow: /cy/
+Disallow: /da/
+Disallow: /de/
+Disallow: /el/
+Disallow: /eo/
+Disallow: /es/
+Disallow: /et/
+Disallow: /eu/
+
+*******************************************************
+Website ko kisi bhi country ke liye Block ya Accessible karna :-
+
+Go to CLOUDFRONT --> DISTRIBUTIONS --> uss website ke domain name ke samne wali i'd pr Click --> SECURITY --> CLOUDFRONT GEOGRAFIC RESTRICTIONS --> EDIT --> 
+NO RESTRICT <-- ( ACCESSIBLE WEBSITE FOR ALL WORLD ) Website all world m kahi se bhi access ho paye uske liye hmm ISS par click karenge or SAVE CHANGES kar denge.
+ALLOW LIST  <-- ( ACCESSIBLE WEBSITE ONLY FOR SELECTED COUNTRIES EX- INDIA,USA,UK ) Website only SELECT kiye hue COUNTRIES m hi access ho paye bina VPN ka use kiye iske liye hmm iss pr click karenge or SAVE CHANGES kar denge.
+BLOCK LIST  <-- ( BLOCK WEBSITE ONLY FOR SELECTED COUNTRIES EX- INDIA,USA,UK ) Website jis-jis country m access nhi ho  un country ke naam ko select karke SAVE CHANGES kar denge.  or agar access karni ho to VPN ko ON karna padega tabhi access ho payegi.
+(isme aapko jo kaam karna h uske hisab se option select karke save changes kar denge ). 
+--> SAVE CHANGES
+(ab hmari website uss hi hisab se kaam karegi jis hisab se aapne usko set kiya hoga ).
+
+******************************************************
+AWS par do websites host karne ka process step-by-step samjhata hoon, jaise ki aapne kaha "noverse" aur "just press" ko host karna hai. Hum EC2 instance, Apache/Nginx web server, aur file upload process cover karenge. Aapko har step ka detail milega aur kis directory mein files upload karni hain, uske baare mein bhi.
+
+Step 1: AWS Account Create Karna
+Sign Up: AWS ki website par jaake apna account create karein. Agar aapke paas AWS account nahi hai toh Sign Up option pe click karein aur apni details (email, password, aur payment details) bhar ke account create karein.
+Payment Info: AWS free tier mein kaafi resources milte hain (limited usage), lekin aapko payment info deni hogi.
+Step 2: EC2 Instance Launch Karna
+EC2 (Elastic Compute Cloud) ek virtual server hai jahan par aap apni websites host kar sakte hain.
+
+AWS Management Console mein login karein.
+Services menu mein se EC2 choose karein.
+Launch Instance pe click karein.
+Amazon Machine Image (AMI):
+Aapko Ubuntu choose karna hoga, jise aapke website ke liye web server setup karne mein madad milegi.
+Instance Type:
+t2.micro (Free Tier eligible) select karein.
+Configure Instance: Default settings ko chhod dijiye.
+Add Storage: Default storage size (8 GB) sufficient hai.
+Configure Security Group:
+HTTP (port 80) aur SSH (port 22) open karein.
+Agar aap HTTPS use karna chahte hain toh HTTPS (port 443) bhi open karein.
+Launch: Key pair select karein (agar naya pair banana ho toh “Create a new key pair” option select karen aur download karen).
+Step 3: EC2 Instance Ko Access Karna (SSH)
+Apne EC2 instance ka public IP dhundhen.
+SSH (Secure Shell) ke through apne instance se connect ho jaayein. Agar aap Windows use kar rahe hain toh PuTTY ka use karein, aur agar Mac ya Linux use kar rahe hain toh terminal ka use karein:
+Example command (Mac/Linux):
+bash
+Copy
+ssh -i /path/to/your-key.pem ubuntu@<Your-EC2-Public-IP>
+Connect hone ke baad aapka terminal EC2 instance ke liye open ho jayega.
+Step 4: Apache Web Server Install Karna
+Update Packages:
+bash
+Copy
+sudo apt update
+Install Apache:
+bash
+Copy
+sudo apt install apache2
+Apache Service Start Karna:
+bash
+Copy
+sudo systemctl start apache2
+sudo systemctl enable apache2
+Check Apache: Agar Apache sahi se install ho gaya hai, toh apne EC2 instance ka public IP address browser mein type karke Apache ka default page dekh sakte hain.
+Step 5: Do Websites Host Karne Ke Liye Directories Banaana
+Aapko do alag-alag websites ke liye alag-alag directories banani hogi.
+
+Create Directories for Websites:
+
+Noverse website ke liye directory:
+bash
+Copy
+sudo mkdir /var/www/html/noverse
+Just Press website ke liye directory:
+bash
+Copy
+sudo mkdir /var/www/html/justpress
+Set Permissions: Ensure karen ki Apache ko inn directories ko access karne ki permissions ho.
+
+bash
+Copy
+sudo chown -R www-data:www-data /var/www/html/noverse
+sudo chown -R www-data:www-data /var/www/html/justpress
+Step 6: Website Files Upload Karna
+Aapko apne website files (HTML, CSS, JavaScript, images, etc.) ko apni EC2 instance ki directories mein upload karna hoga.
+
+Website Files (Example):
+noverse ke liye: /var/www/html/noverse
+justpress ke liye: /var/www/html/justpress
+Aapko apne website ke HTML files, CSS files, images, JavaScript, etc. upload karni hain:
+
+SFTP ya SCP ka use karen apni local machine se files upload karne ke liye. Example command:
+bash
+Copy
+scp -i /path/to/your-key.pem /path/to/your-website-files/* ubuntu@<Your-EC2-Public-IP>:/var/www/html/noverse
+Same command Just Press ke liye use karen:
+bash
+Copy
+scp -i /path/to/your-key.pem /path/to/your-website-files/* ubuntu@<Your-EC2-Public-IP>:/var/www/html/justpress
+Step 7: Virtual Hosts Configure Karna (Apache)
+Aapko Apache mein virtual hosts configure karne honge taaki dono websites alag-alag domains par run ho sakein.
+
+Create Virtual Hosts File for Noverse:
+
+Apache configuration file /etc/apache2/sites-available/noverse.conf create karein:
+bash
+Copy
+sudo nano /etc/apache2/sites-available/noverse.conf
+Noverse ke liye configuration add karein:
+apache
+Copy
+<VirtualHost *:80>
+    ServerAdmin webmaster@noverse.com
+    ServerName noverse.com
+    DocumentRoot /var/www/html/noverse
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+Create Virtual Hosts File for Just Press:
+
+/etc/apache2/sites-available/justpress.conf create karein:
+bash
+Copy
+sudo nano /etc/apache2/sites-available/justpress.conf
+Just Press ke liye configuration add karein:
+apache
+Copy
+<VirtualHost *:80>
+    ServerAdmin webmaster@justpress.com
+    ServerName justpress.com
+    DocumentRoot /var/www/html/justpress
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+Enable Virtual Hosts:
+
+Enable virtual hosts aur Apache ko restart karein:
+bash
+Copy
+sudo a2ensite noverse.conf
+sudo a2ensite justpress.conf
+sudo systemctl restart apache2
+Step 8: DNS Setup Karna (Domain Name)
+Agar aap custom domain names (noverse.com aur justpress.com) use kar rahe hain, toh aapko Route 53 ya kisi bhi DNS provider par A records set karne honge jo aapke EC2 instance ke public IP address par point karein.
+
+Step 9: SSL Setup Karna (Optional)
+Agar aap apni websites par HTTPS chahte hain:
+
+AWS ACM (AWS Certificate Manager) se SSL certificate le sakte hain.
+Apache mein SSL configure karne ke liye mod_ssl module ko enable karen aur SSL certificates ko configure karen.
+Step 10: Testing Websites
+Apne domains ko browser mein open karke test karein. Agar sab kuch sahi hai, toh dono websites aapke EC2 server par run kar rahi hongi.
+
+Is tarah se aap apne do websites "noverse" aur "just press" ko AWS EC2 instance par successfully host kar sakte hain.
+
+
+
+
+*******************************************************
+/var/www/crmbackend.medflick.com/old_backup/
+
+/etc/nginx/sites-available/crm.medflick.com*
+
+
+Use nslookup (Domain Name System Lookup)   <--- domain name kis ip pr point kar raha h ya ye domain name kaha pr piont kar raha h ye check karne ke liye
+nslookup campaign.medflick.com
+dig campaign.medflick.com
+https://campaign.medflick.com/
+
+ host 68.178.162.210
+210.162.178.68.in-addr.arpa domain name pointer 210.162.178.68.host.secureserver.net.
+
+
+nslookup campaign.medflick.com  <-- ye domain kis ip pe point kar raha h dekhne ke liye
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+
+Non-authoritative answer:
+Name:   campaign.medflick.com
+Address: 68.178.162.210
+ 
+
+https://aws.plainenglish.io/attach-ssl-certificate-and-domain-to-your-ec2-instance-using-route-53-and-aws-acm-28c9844a1a88
+https://www.showwcase.com/article/35459/building-a-resilient-three-tier-architecture-on-aws-with-deploying-mern-stack-application
+
+*************************************************
+C:\Users\Dell\Videos\Captures    <-- screenshots kaha pr store hote h ye uska path h
+************************************************
+sudo iptables -A INPUT -p tcp --dport 80 -j DROP
+sudo iptables -A INPUT -p tcp --dport 443 -j DROP
+
+sudo iptables-save | sudo tee /etc/iptables/rules.v4
+
+sudo ufw deny 80
+sudo ufw deny 443
+
+sudo ufw enable
+
+sudo iptables -I INPUT -p tcp -s 203.145.171.83 --dport 80 -j ACCEPT
+sudo iptables -I INPUT -p tcp -s 203.145.171.83 --dport 443 -j ACCEPT
+
+sudo iptables-save | sudo tee /etc/iptables/rules.v4
+
+sudo ufw allow from 203.145.171.83 to any port 80
+sudo ufw allow from 203.145.171.83 to any port 443
+
+sudo ufw reload
+
+sudo iptables -L -n -v
+
+sudo ufw status verbose
+
+MedFlick8050
+medflick-backup-server
+https://medflick.signin.aws.amazon.com/console
+arn:aws:iam::903664931516:user/medflick-backup-server
+
+**********************************************************
+/var/www/campaign.medflick.com   <-------  ye landing page hai medflick  ka jab bhi koi new landing page create karna ho to yha pr karna
+*************************************************************
+sudo passwd ubuntu   <---- password change command
+make it new password and update.
+
+**************************************************************
+LAPTOP YA DESKTOP M SCREENSHOT ya SCREEN RECORDING KARNA :-
+Window+Alt+Prtscrn    <--- Screenshot Lene ke liye
+Window+Alt+R          <--- Screen Recording karne ke liye
+Window+Alt+M          <--- Screen Recording karte time voice ko add karne ke liye (mic ko chalu karna screen recording karte time ).
+YE SARE SHORTCUT H JINKA USE KARKE HMM DIRECT SCREENSHOT OR SCREEN RECORDING KAR SAAKTE H.
+
+Window+G              <--- iska use karenge hmm to hmare pass options open ho jayenge jinpe click karke hm screenshot or screen recording kar sakte h.
+Window+shift+S        <--- screenshot lene ke liye. jitni screen ka screenshot lena h utni jagah pr mouse se select karna padta h.
+********************************************************   
+NGINX KI DEFAULT FILE KA PATH KUCHH BHI CHANGES KE LIYE :-
+ 
+ 1363  df -h                             <------- check check memory size
+ 1364  du -sh                            <------- check directory size in Linux
+ 1365  netstat -tulnp  & ss -tulnp       <------- check port no. in Linux
+ 1366  sudo ps aux | grep "npm start"    <------- check process id of a particular service
+ 1367  nproc                             <------- check no. of cpu Like:- (1,2,3)
+ 1368  cd /etc/nginx/sites-available/    <------- nginx ki default file iss wale folder ke andar h
+ 1369  ls
+ 1370  cat default                       <------- ye nginx ki default file h agar hmko kuchh bhi dekhna ya Padhna hota h to hmm isme dekhte h NGINX se related
+ 1370  vim default                       <------- ye nginx ki default file h agar hmko kuchh bhi changes karne hote h to hmm isme karte h NGINX se related
+ 1371  sudo vim /etc/nginx/nginx.conf
+ 1372  sudo vim /etc/nginx/sites-available/default <------- ye nginx ki default file h agar hmko kuchh bhi changes karne hote h to hmm isme karte h NGINX se related
+ 1373  sudo nginx -t                     <------- is command ko run karke hmm ye dekhte h ki hmne nginx ki default file m jo changes kiye h wo successful ho gya h ya nhi huaa h yani ( Test is successful dikha raha h ya Test is failed dikha raha h ).
+ 1374  sudo systemclt restart nginx      <------- for restart the server
+
+****************************************************
+BACKEND SERVER M JANE KA PATH :-
+
+cd /var/www/medflickfd                   <------- Backend Server m jane ka Path
+
+***************************************************
+LANDING PAGE PR JANE KE LIYE PATH :-
+
+cd /var/www/html/medflick.com/Medflick-new-Home/public/  <------- Landing page pr jane ka Path
+*****************************************************
+
+ubuntu@ip-172-31-14-150:~$ history 
+    1  sudo -i
+    2  clear
+    3  ls
+    4  node -v
+    5  npm -v
+    6  clear
+    7  cd /var/www/
+    8  ls
+    9  cd html
+   10  ls
+   11  ll
+   12  cd justpress/
+   13  ls
+   14  ll
+   15  clear
+   16  ll
+   17  cat .env
+   18  clear
+   19  cd
+   20  ls
+   21  cd /var/ww/
+   22  cd /var/www/
+   23  ls
+   24  cd html
+   25  ls
+   26  ll
+   27  cd
+   28  clear
+   29  ls
+   30  sudo systemctl status nginx.service 
+   31  cd /var/www/html
+   32  ls
+   33  cd justpress/
+   34  ls
+   35  ll
+   36  CLEAR
+   37  clear
+   38  ls
+   39  ll
+   40  cd ..
+   41  ls
+   42  sudo mv justpress  justpressfrontend
+   43  ls
+   44  sudo rm -rf package-lock.json 
+   45  ls
+   46  cat index.nginx-debian.html 
+   47  clear
+   48  cd /home/ubuntu
+   49  history 
+ubuntu@ip-172-31-14-150:~$ 
+*****************************************
+Bucket policy m ye set karna h bucket ka arn url change kake bs :-
+
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Statement1",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": [
+                "s3:ListBucket",
+                "s3:GetObject",
+                "s3:GetObjectAcl",
+                "s3:PutObject",
+                "s3:PutObjectAcl",
+                "s3:ReplicateObject",
+                "s3:DeleteObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::kittysu",
+                "arn:aws:s3:::kittysu/*",
+                "arn:aws:s3:::kittysu/public/*",
+                "arn:aws:s3:::kittysu/icon/*"
+            ]
+        }
+    ]
+}
+
+
+Cross-origin resource sharing (CORS) m :-
+
+[
+    {
+        "AllowedHeaders": [],
+        "AllowedMethods": [
+            "GET",
+            "PUT",
+            "POST",
+            "DELETE"
+        ],
+        "AllowedOrigins": [
+            "*"
+        ],
+        "ExposeHeaders": []
+    }
+]
+
+
+*******************************************
+Mail i'd :- shrigopal@wikreate.in
+Password :- Shri@8279
+        
+        172.31.47.153    <--- Private ip
+Host:-  13.201.11.181    <--- Public ip
+username:- ubuntu
+password:- MedAdmin8050
+
+Aws Account Details :-
+Email id :- internal@medflick.com     <--- Aws Medflick Account ke Credentials
+Password :- ()7b56^&$DmkDWO78^&
+
+Email id :- it@eternalheart.org
+Password :- Admin@2024AWS$
+
+Email id :- info@justpress.co.in    <--- Aws Justpress Account ke Credentials
+Password :- Just@321#@!
+
+13.233.159.118  <-- Public ip
+172.31.14.150   <-- Private ip
+Ubuntu
+JustAdmin@8050
+
+https://certpanel.com/         <--- CertPanel m Login karne ke liye iss website pe jakar inn mail or password se connect karna h
+Email id :- sudiip@wikreate.in
+Password :- Ehcc@1234**
+
+Godaddy Account Details :-
+i'd  :- 100363075           <---- Lalit or suryahospital.com server ke credentials Godaddy ke account pr
+Pass :- Feb2025!20@909
+
+i'd  :- hello@wikreate.in   <---- blogLalit.com ke Godaddy ke account ke credentials
+Pass :- Wiki@1234!
+
+i'd  :- 583619210           <---- Osama Godaddy Account i'd and Password
+Pass :- Osama19@Heba20
+
+ssh -i medflick_stage.pem ubuntu@13.201.11.181   <----- login by pem file or user-name or password
+pass :- MedAdmin8050
+
+ssh -p 50489 ubuntu@160.30.207.37               thelalit.com Aws account  Server 1 Details  <--- login by port no. or user-name or password
+pass :- Tm3c6v23VHXsf9gDVwcP
+
+ssh -p 50489 ubuntu-lalit@160.30.207.38         thelalit.com Aws account Server 2 Details  <--- login by port no. or user-name or password
+pass :- 60canjfnGz8I>r1,hgjkk                  
+  
+Username :- justpressuser
+Password :- Just@8050                              <----- mysql username or password
+arn:aws:iam::533073213058:user/justpress-backup
+https://533073213058.signin.aws.amazon.com/console
+justpress-backup    -- name
+Justpress8050       -- pass
+***************************************************
+Hey,
+
+I get your points. But we are using for our website to send the email to the users.
+
+Kindly Please re-check and enable for production
+
+Production access request
+Service: SES Sending Limits
+Region: ap-south-1
+Please enable production access
+------------
+Use case description: Just need to send the query from the website like as contact us form, second opinion form, book appointment form, and career form.
+Mail Type: TRANSACTIONAL
+Website URL: https://justpress.in 
+**************************************************
+ 2023  cd /home/ubuntu               <----------   Backend Server ko live karna --> JustpressBackend wale ko
+ 2024  ls
+ 2025  sudo git clone -b master https://@github.com/mani123456/education.git
+ 2026  ls
+ 2027  cd education/
+ 2028  ls
+ 2029  sudo cp -r app /var/www/html/justpressbackend/
+ 2030  sudo cp -r resources /var/www/html/justpressbackend/
+ 2031  sudo cp -r routes /var/www/html/justpressbackend/
+ 2032  sudo cp -r storage /var/www/html/justpressbackend/
+ 2033  ls
+ 2034  cd
+ 2035  sudo rm -rf education/
+ 2036  ls 
+ 2037  history
+
+***************************************************
+ CODE KO LIVE KARNE KE LIYE :- jis folder ke andar code h jaise ki Medflick-new-Home/ <---ke andar to vahi jake ye steps follow karne h  ( Lekin inn steps ko dhyan se dekhna h or phir same to same aise hi karna h ). 
+
+ 1984  cd /home/ubuntu             <-------------------------------- Justpress ki website ko live karna
+ 1985  cd
+ 1986  sudo git clone -b main https://@github.com/wikreate-Manish/justpress.git
+ 1987  cd justpress/
+ 1988  sudo cp -r src /var/www/html/justpressfrontend/
+ 1989  cd
+ 1990  sudo rm -rf justpress/
+ 1991  cd /var/www/html/justpressfrontend/
+ 1992  ls
+ 1993  sudo npm install
+ 1994  sudo npm run build
+ 1995  pm2 list
+ 1996  pm2 restart justpressbackend
+ 1997  pm2 list
+ 1998  pm2 log
+  
+  &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ 2015  su ubuntu                          <--------------------------  Noversehaelthcare.com ki website ko live karna
+ 2016  cd /home/ubuntu
+ 2017  ls
+ 2018  sudo git clone -b main https://@github.com/wikreate-Manish/noversehealthcare.git
+ 2019  ls
+ 2020  cd noversehealthcare/
+ 2021  sudo cp -r src /var/www/html/noversehealthcare
+ 2022  cd
+ 2023  ls
+ 2024  sudo rm -rf noversehealthcare/
+ 2025  cd /var/www/html/noversehealthcare
+ 2026  sudo npm install
+ 2027  sudo npm run build
+ 2028  pm2 list
+ 2029  pm2 restart noversehealthcare
+ 2030  pm2 log
+ 2031  pm2 status
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 
+ 2001  su ubuntu
+ 2002  cd /home/ubuntu
+ 2003  sudo git clone -b main https://@github.com/wikreate-Manish/Medflick-new-Home.git
+ 2004  ls
+ 2005  cd Medflick-new-Home/
+ 2006  ls
+ 2007  sudo cp -r src /var/www/html/medflick.com/Medflick-new-Home/
+ 2008  cd 
+ 2009  ls
+ 2010  sudo rm -rf Medflick-new-Home/    <---------------------------------- ye file delete jb karni h jb server pr memory space kam ho agar memory m space available h to isko delete karne ki jaroorat nhi h agar koi errror aata h isko delete na karne se to isko delete kar denge pr poore dhyan se delete karna h ki kaise or kis jagah pr ye located h.
+ 2011  cd /var/www/html/medflick.com/Medflick-new-Home/
+ 2012  sudo npm install
+ 2013  sudo npm run build
+ 2014  pm2 restart medflick
+ 2015  pm2 start npm --name "medflick" -- start    <------ iss command ko har bar nhi chalana h isse new pm2 service create ho jati h or ye cpu ka usage badha deti h.
+ 2016  pm2 log
+ 2017  pm2 status
+
+@@@@@@@@@@@@@@@@@@
+ubuntu@ip-172-31-47-153:/var/www/html/medflick.com/Medflick-new-Home$ sudo npm install
+
+up to date, audited 358 packages in 3s
+
+107 packages are looking for funding
+  run `npm fund` for details
+
+8 vulnerabilities (4 moderate, 3 high, 1 critical)
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
+
+
+&&&&&&&
+second ye bhi sahi tarika h ye maine khud se chalayi thi commands :-  
+YE SRC WALE FOLDER KE ANDAR KA CODE LIVE KARNE KA TARIKA H :-
+
+ 2000  su ubuntu
+ 2001  cd /home/ubuntu
+ 2002  sudo git clone -b main https://@github.com/wikreate-Manish/Medflick-new-Home.git
+ 2003  cd Medflick-new-Home/
+       ls
+ 2004  sudo cp -r src /var/www/html/medflick.com/Medflick-new-Home/
+ 2005  cd
+ 2006  ls
+ 2007  sudo rm -rf Medflick-new-Home/
+ 2008  cd /var/www/html/medflick.com/Medflick-new-Home/
+ 2009  sudo npm install
+ 2010  sudo npm run build
+ 2011  pm2 restart medflick
+ 2012  pm2 start npm --name "medflick" -- start    <------ iss command ko har bar nhi chalana h isse new pm2 service create ho jati h or ye cpu ka usage badha deti h.
+ 2013  pm2 log
+ 2014  pm2 status
+&&&&&&&&&&&&&&&&&&&&&&&&&&
+YE next.config.js WALE FOLDER KE ANDAR KA CODE LIVE KARNE KA TARIKA H :-
+ 1998  su ubuntu
+ 1999  cd /home/ubuntu
+ 2002  sudo git clone -b main https://@github.com/wikreate-Manish/Medflick-new-Home.git
+ 2003  ls
+ 2004  cd Medflick-new-Home/
+ 2005  sudo cp -r next.config.js /var/www/html/medflick.com/Medflick-new-Home/
+ 2006  cd /var/www/html/medflick.com/Medflick-new-Home/
+ 2007  sudo npm install
+ 2008  sudo npm run build
+ 2009  pm2 restart medflick
+ 2010  pm2 start npm --name "medflick" -- start     <------ iss command ko har bar nhi chalana h isse new pm2 service create ho jati h or ye cpu ka usage badha deti h.
+ 2011  pm2 log
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ 1931  su ubuntu
+ 1932  cd /home/ubuntu
+ 1933  sudo git clone -b main https://@github.com/wikreate-Manish/Aayushkar.git
+ 1934  ls
+ 1935  cd Aayushkar/
+ 1936  sudo cp -r src /var/www/Aayushkar/
+ 1937  cd
+ 1938  ls
+ 1939  sudo rm -rf Aayushkar/
+ 1940  cd /var/www/Aayushkar
+ 1941  sudo npm install
+ 1942  sudo npm run build
+ 1943  pm2 restart Aayushkar
+ 1944  pm2 status
+ 1945  pm2 restart aayushkar
+ 1946  pm2 log
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+ubuntu@ip-172-31-14-150:/etc/nginx/sites-available$ cat novershealthcare                   <---- Website ka Frontend ko host ke liye
+server {
+    listen 80;
+    server_name noversehealthcare.com;
+
+
+
+    root /var/www/html/;
+
+
+    gzip on;
+    gzip_proxied any;
+    gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss;
+    gzip_comp_level 5;
+    gzip_buffers 16 8k;
+    gzip_min_length 256;
+
+    add_header X-Content-Type-Options "nosniff";
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-XSS-Protection "1; mode=block";
+    #add_header Strict-Transport-Security  "max-age=31536000; includeSubDomains; preload";
+    add_header Referrer-Policy "same-origin";
+
+
+        location / {
+        proxy_pass http://localhost:3002;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+        location /justpressfrontend/_next/static {
+        root /var/www/html/justpressfrontend/.next/static;
+    }
+}
+
+ubuntu@ip-172-31-14-150:/etc/nginx/sites-available$ cat novershealthcarebackend                   <---- Website ka Backend ko host ke liye
+server {
+    server_name admin.noversehealthcare.com;
+
+    root /var/www/html/noversehealthcarebackend/public;
+    index index.php;
+
+
+    #fastcgi_read_timeout 300000;
+    #fastcgi_connect_timeout 30000;
+    server_tokens off;
+    keepalive_timeout 65;
+    keepalive_requests 100000;
+    charset utf-8;
+    client_max_body_size 100M;
+
+
+
+    location / {
+    allow all;
+
+    try_files $uri $uri/ /index.php?$query_string;
+}
+
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+
+
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+        fastcgi_read_timeout 300000;
+        fastcgi_connect_timeout 30000;
+        fastcgi_buffering on;
+        fastcgi_buffer_size 128k;
+        fastcgi_buffers 256 16k;
+        fastcgi_busy_buffers_size 256k;
+        fastcgi_temp_file_write_size 256k;
+
+    }
+
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+
+
+#    listen 443 ssl; # managed by Certbot
+#   ssl_certificate /etc/letsencrypt/live/backendjustpress.justpress.in/fullchain.pem; # managed by Certbot
+#   ssl_certificate_key /etc/letsencrypt/live/backendjustpress.justpress.in/privkey.pem; # managed by Certbot
+#   include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+#   ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+#server {
+#    if ($host = admin.noversehealthcare.com) {
+#        return 301 https://$host$request_uri;
+#    } # managed by Certbot
+
+
+
+
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/admin.noversehealthcare.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/admin.noversehealthcare.com/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+
+server {
+    if ($host = admin.noversehealthcare.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    server_name admin.noversehealthcare.com;
+    listen 80;
+    return 404; # managed by Certbot
+
+
+}  
+***************************************************
+LANDING PAGE KO SUB-DOMAIN SE SUB-DIRECTORY PR REDIRECT KARNE KE LIYE :-
+ JAISE campaign.medflick.com se medflick.campaign.com pr traffic ko redirect karna ye APOLLO wale page ke liye h :-
+ 
+   1371   cd /etc/nginx/sites-available/
+   1372   vim campaign.medflick.com   <------ isme jake landing page ko sub-domain se sub-directory pr redirect karne ke liye usi page ke configuration step wali line m jake sub-domain ki jagah sub-directory ko paste kar denge aise :- 
+
+ ( iski jagah pr same neeche wale code ko dal denge or ye copy bilkul aise hi karna h same to same  ) :---       
+        
+        location /apollo {
+        root /var/www/campaign.medflick.com;
+        index index.php index.html;
+        try_files $uri $uri/ /index.php?$query_string;
+
+        location ~ \.php$ {
+        include fastcgi_params;
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param PATH_INFO $fastcgi_path_info;
+        }
+
+
+        location ~* \.(js|webp|css|png|jpg|jpeg|gif|ico|svg)$ {
+        expires 30d;
+        access_log off;
+        add_header Cache-Control "public";
+        }
+
+        location ~* \.(woff|woff2|ttf|otf)$ {
+        expires 30d;  # Set cache TTL to 7 days
+        add_header Cache-Control "public";
+        }
+}
+
+( ye code dalna h upar wale code ki jagah ):---
+
+location /apollo {
+   redirect 301 https://medflick.com/campaign/apollo     
+
+}
+
+ 1373  sudo nginx -t                      <--- For Testing changes is successfully done or not.
+ 1374  sudo systemctl restart nginx       <--- nginx ki file m changes karne baad usko restart karna hota h compulsory  
+ 1375  history 
+
+
+*******************************************************
+SSH DEFAULT FILE LOCATION :-
+sudo -i
+cd .ssh
+ll
+vim authorized_keys
+                   ( isme id_rsa  or id_rsa.pub ) <------ ye dono file ke output ko copy karke isme paste karte h
+cat authorized_keys 
+
+*********************************************************
+PM2 SETUP KARNE KE LIYE :- 
+
+Pm2 kis liye use hota h :-
+it makes sure your app stays open and running in the background, even if you close your terminal or computer. If your app crashes, PM2 restarts it automatically.
+
+Handles Multiple Apps :-
+if you have more than one app or service, PM2 can keep track of all of them and make sure they’re running properly.
+
+npm install pm2 -g                <----- PM2 Install Karne ke liye
+pm2 start app.js                  <----- Apne Node.js Application Ko Start Karne ke liye
+pm2 status                        <----- Application Ko Monitor Karne ke liye
+pm2 restart app.js                <----- Application Ko Restart Karne ke liye
+pm2 stop app.js                   <----- Application Ko Stop Karne ke liye
+pm2 reload all                    <----- PM2 Ko Restart Karne ke liye
+pm2 logs                          <----- PM2 Ki Logs Dekhne ke liye
+pm2 startup                       <----- PM2 Ka Autostart Setup Karne ke liye
+pm2 save                          <----- PM2 Ko Save Karne ke liye
+pm2 kill app.js                   <----- PM2 ki appliation ko delete karna
+pm2 delete app.js                 <----- PM2 ki appliation ko delete karna
+
+***********************************************************
+
+WEBSITE KI SPEED OR PERFORMANCE KAISE CHECK KARNA :-
+
+1st Tool  :- Pagespeed insights
+2nd Tool  :- GTmetrix
+3rd Tool  :- Pingdom
+
+1st Tool :-
+
+Pagespeed insights         <--------- Go to chrome and search this tool for check website speed or perfformance
+https://www.cocoon.co.in   <--------- Paste the website url <------ in Pagespeed insights
+Analyze                    <--------- Click on This
+
+2nd Tool :-
+
+GTmetrix                   <--------- Go to chrome and search this tool for check website speed or perfformance
+https://www.cocoon.co.in   <--------- Paste the website url <------ in Pagespeed insights
+Analyze                    <--------- Click on This
+
+3rd Tool :-
+
+Pingdom                    <--------- Go to chrome and search this tool for check website speed or perfformance
+https://www.cocoon.co.in   <--------- Paste the website url <------ in Pagespeed insights
+Analyze                    <--------- Click on This
+
+==>Auto optimize <--- ye wordpress website plugin h. jiski wajah se website slow ho rahi h us issue ko identify karke website ko slow hone se rokta h apne aap issue like :- over size images & etc...
+
+
+****************************************************************
+
+SSH KI MAIN FILE M ROOT KO LOGIN KARNE KE LIYE ALLOW KARNA :-
+
+vim /etc/ssh/sshd_config       <---- ye SSH ki default file h.
+permitRootLogin yes            <---- (yes) karna h isko or iss line m aage (#) nhi laga hona chahiye.
+sudo systemctl restart sshd
+
+********************************************
+FILE KO COPY KARNE KE METHODS :-
+cp -r apollo /home/ubuntu/backup                             <--- ek SERVER pe hi ek LOCATION se dusre LOCATION pr copy karna data ko.
+scp -r apollo root@192.12.321.123:/home/ubuntu/backup        <--- ek SERVER se dusre SERVER pr data ko copy karna.
+rsync -avz apollo root@192.12.321.123:/home/ubuntu/backup    <--- ek SERVER se dusre SERVER pr data ko copy karna.
+ 
+(sftp root@192.12.321.123
+put apollo /home/ubuntu/backup                               <------  ftp se connect karke )
+  
+git clone -b main https://gtihub.com/your-repo.git /home/ubuntu/backup    <------ github se copy karna direct particular branch se destination pr.
+
+( cd /var/www/medflick
+git pull origin main   )  <---- github account pr code ko rakhna us wali directory m jakar jisme code h.
+
+************************************************
+MYSQL SE DATABASE KA BACKUP LENA (Backup file create karna) :-
+
+su ubuntu
+cd /home/ubuntu  <--- yaha pe database ki backup files rakhi h
+ls
+sudo mysqldump -u root -p crmurts5Sqk > crm_backup.sql     <--- crmurts5Sqk ki backup file  <--- ye command backup lene ke liye h isme pahle database ka naam jiska bakup lena h
+
+sudo mysqldump -u root -p medflick > medflick__backup.sql  <--- medflick ki backup file         ^--- phir wo name dena h jis name se backup file create karni h.
+
+sudo mysql -u root -p
+password :- toor
+show databases;                  <--- check databases
+create database database_name;   <--- create a new database
+use database_name;               <--- kisi bhi particular database m jana
+drop database database_name;     <--- delete a particular database
+
+show tables;                     <--- show tables in the database
+
+****************************
+ 2006  cd /home/ubuntu
+ 2007  ls
+ 2008  sudo apt update && apt upgrade -y
+ 2009  sudo apt update
+ 2010  sudo apt install phpmyadmin
+ 2011  which phpmyadmin
+ 2012  which /home/ubuntu/phpmyadmin
+ 2013  sudo apt-get install -y phpmyadmin
+ 2014  sudo service apache2 restart
+ 2015  sudo systemctl start apache2
+ 2016  sudo apt install nginx -y
+ 2017  sudo apt install mysql-server -y
+ 2018  sudo apt install php-fpm php-mysql php-zip php-xml php-mbstring php-curl php-json -y
+ 2019  sudo apt install phpmyadmin -y
+ 2020  sudo systemctl reload nginx
+ 2021  sudo systemctl status mysql.service
+ 2022  sudo systemctl status apache2
+ 2023  sudo systemctl status apache2.service
+ 2024  sudo apt update
+ 2025  sudo apt install mysql-server
+ 2026  sudo apt-get install apache2
+ 2027  sudo systemctl status mysql
+ 2028  sudo systemctl status apache2
+ 2029  sudo systemctl start apache2
+ 2030  sudo systemctl start apache-htcacheclean.service
+ 2031  sudo systemctl status apache2
+ 2032  sudo apt install php
+ 2033  sudo apt install phpmyadmin
+ 2034  sudo phpenmod mbstring
+ 2035  sudo systemctl restart apache2
+ 2036  sudo apt install apache2 -y
+ 2037  sudo systemctl start apache2
+ 2038  sudo systemctl enable apache2
+ 2039  sudo systemctl status apache2
+ 2040  sudo systemctl start apache2.service
+ 2041  history
+
+
+**************
+PHPMYADMIN INSTALLATION COMMANDS :- THIS IS WRITE PROCESS
+
+ 2003  sudo apt update
+ 2004  sudo apt install apache2 -y
+ 2005  sudo systemctl start apache2
+ 2006  sudo systemctl enable apache2
+ 2007  sudo systemctl status apache2.service
+ 2008  sudo lsof -i :80
+ 2009  kill -9 221512
+ 2010  pkill -9 221512
+ 2011* pkill -9
+ 2012  sudo lsof -i :80
+ 2013  systemctl status apache2.service
+ 2014  sudo vim /etc/apache2/ports.conf  <--- iss file m port no. change kiya h (80 se 82). iski file m pahle port 80 tha jiski wajah se apache2 ki service start nhi ho pa rahi thi to pahle iski PID check karke iski service ko kill kiya uske baad iski file m port no. change kiya or save. 
+ 2015  sudo systemctl start apache2
+ 2016  systemctl status apache2.service
+ 2017  sudo apt install php libapache2-mod-php php-mysql -y
+ 2018  sudo systemctl restart apache2
+ 2019  sudo nano /var/www/html/info.php
+ 2020  sudo systemctl start apache2
+ 2021  ip config
+ 2022  ipconfig
+ 2023  ip addr
+ 2024  clear
+ 2025  sudo systemctl status apache2
+ 2026  c
+ 2027  clear
+ 2028  top
+ 2029  curl http://localhost:82/info.php
+ 2030  sudo ufw allow 82/tcp
+ 2031  sudo ufw status
+ 2032  sudo apt update
+ 2033  sudo apt install ufw
+ 2034  clear
+ 2035  sudo ufw status
+ 2036  sudo systemctl restart apache2
+ 2037  sudo apt update
+ 2038  sudo apt install phpmyadmin
+ 2039  sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
+ 2040  vim /etc/apache2/ports.conf
+ 2041  sudo systemctl restart apache2
+ 2042  sudo mysql -u root
+ 2043  history
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'your_new_password';  <---- change password of root user of mysql  <--- ye command nhi chalani h jb tk iski jaroorat nhi pade.
+**********************************************
+vim default :-
+
+location /campaign/apollo {
+        root /var/www/campaign.medflick.com;
+        index index.php index.html;
+        try_files $uri $uri/ /index.php?$query_string;
+
+        location ~ \.php$ {
+        include fastcgi_params;
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param PATH_INFO $fastcgi_path_info;
+        }
+
+
+        location ~* \.(js|webp|css|png|jpg|jpeg|gif|ico|svg)$ {
+        expires 30d;
+        access_log off;
+        add_header Cache-Control "public";
+        }
+
+        location ~* \.(woff|woff2|ttf|otf)$ {
+        expires 30d;  # Set cache TTL to 7 days
+        add_header Cache-Control "public";
+        }
+}
+
+
+apollo wali file remove kar do campaign.medflick.com wali folder se aur haa ab nginx file mai kuch mat karna hai 
+
+jab bole to sab folder ko move karwa dena space nahi hai serveer itna theek hai
+
+
+cat index.html
+ 1069  nginx -t
+ 1070  cd
+ 1071  cd /etc/nginx/nginx.conf
+ 1072  cd /etc/nginx/
+ 1073  ll
+ 1074  cat nginx.conf 
+ 1075  ll
+ 1076  cd conf.d/
+ 1077  ll
+ 1078  cd ..
+ 1079  ll
+ 1080  cd sites-available/
+ 1081  ll
+ 1082  cat campaign.medflick.com 
+ 1083  ll
+ 1084  cd
+ 1085  cd /var/www
+ 1086  ll
+ 1087  cd campaign.medflick.com/
+ 1088  ll
+ 1089  cat index.html 
+ 1090  ll
+ 1091  cd apollo/
+ 1092  ll
+ 1093  vim index.html
+ 1094  cd
+ 1095  cd /var/www/html
+ 1096  ll
+ 1097  vim index.html 
+ 1098  systemctl restart nginx
+ 1099  vim index.html 
+ 1100  systemctl restart nginx
+ 1101  cd 
+ 1102  cd /var/www
+ 1103  ll
+ 1104  cd campaign.medflick.com/
+ 1105  ll
+ 1106  cd
+ 1107  cd /etc/nginx/sites-available/
+ 1108  ll
+ 1109* 
+ 1110  ll
+ 1111  vim campaign.medflick.com 
+ 1112  cp -r campaign.medflick.com /home/ubuntu/backup
+ 1113  vim campaign.medflick.com 
+ 1114  sudo vim campaign.medflick.com
+location /apollo {
+          return 301 https://medflick.com/campaign/apollo;
+
+
+} 
+ 
+ 1120  sudo vim campaign.medflick.com 
+ 1121  sudo nginx -t
+ 1122  sudo systemctl restart nginx
+ 1123  cd /var/www/html
+ 1124  ll
+ 1125  cd medflick.com/
+ 1126  ll
+ 1127  cd Medflick-new-Home/
+ 1128  ll
+ 1129  cd public/
+ 1130  ll
+ 1131  sudo mkdir campaign
+ 1132  cd ..
+ 1133  ll
+ 1134  cd ..
+ 1135  ll
+ 1136  cd ..
+ 1137  ll
+ 1138  cd ..
+ 1139  ll
+ 1140  cd campaign.medflick.com/
+ 1141  ll
+ 1142  sudo cp -r apollo/ /var/www/html/medflick.com/Medflick-new-Home/public/campaign/
+ 1143  cd
+ 1144  cd /var/www/html/medflick.com/Medflick-new-Home/public/campaign/
+ 1145  ll
+ 1146  cd apollo/
+ 1147  ll
+ 1148  cd
+ 1149  cd /home/ubuntu/backup/
+ 1150  ll
+ 1151  cat campaign.medflick.com 
+ 1152  cd 
+ 1153  cd /etc/nginx/sites-available/
+ 1154  ll
+ 
+1155  vim default
+        location /Medflick-new-Home/_next/static {
+        root /var/www/html/medflick.com/Medflick-new-Home/.next/static;
+        #expires 30d;
+        #add_header Cache-Control "public, max-age=2592000";
+    }
+        location /campaign {
+        root /var/www/html/medflick.com/Medflick-new-Home/public;
+        index index.php index.html;
+        try_files $uri $uri/ /index.php?$query_string;
+
+        location ~ \.php$ {
+        include fastcgi_params;
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param PATH_INFO $fastcgi_path_info;
+        }
+
+
+        location ~* \.(js|webp|css|png|jpg|jpeg|gif|ico|svg)$ {
+        expires 30d;
+        access_log off;
+        add_header Cache-Control "public";
+        }
+
+        location ~* \.(woff|woff2|ttf|otf)$ {
+        expires 30d;  # Set cache TTL to 7 days
+        add_header Cache-Control "public";
+
+        }
+        }
+}
+ 
+ 
+ 1163  vim default
+ 1164  sudo  nginx -t
+ 1165  sudo systemctl restart nginx
+ 1166  history
+
+********************
+        location /apollo {
+        root /var/www/campaign.medflick.com;
+        index index.php index.html;
+        try_files $uri $uri/ /index.php?$query_string;
+
+        location ~ \.php$ {
+        include fastcgi_params;
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param PATH_INFO $fastcgi_path_info;
+        }
+
+
+        location ~* \.(js|webp|css|png|jpg|jpeg|gif|ico|svg)$ {
+        expires 30d;
+        access_log off;
+        add_header Cache-Control "public";
+        }
+
+        location ~* \.(woff|woff2|ttf|otf)$ {
+        expires 30d;  # Set cache TTL to 7 days
+        add_header Cache-Control "public";
+        }
+}
+
+
+
+
+
+cat index.html
+ 1069  nginx -t
+ 1070  cd
+ 1071  cd /etc/nginx/nginx.conf
+ 1072  cd /etc/nginx/
+ 1073  ll
+ 1074  cat nginx.conf 
+ 1075  ll
+ 1076  cd conf.d/
+ 1077  ll
+ 1078  cd ..
+ 1079  ll
+ 1080  cd sites-available/
+ 1081  ll
+ 1082  cat campaign.medflick.com 
+ 1083  ll
+ 1084  cd
+ 1085  cd /var/www
+ 1086  ll
+ 1087  cd campaign.medflick.com/
+ 1088  ll
+ 1089  cat index.html 
+ 1090  ll
+ 1091  cd apollo/
+ 1092  ll
+ 1093  vim index.html
+ 1094  cd
+ 1095  cd /var/www/html
+ 1096  ll
+ 1097  vim index.html 
+ 1098  systemctl restart nginx
+ 1099  vim index.html 
+ 1100  systemctl restart nginx
+ 1101  cd 
+ 1102  cd /var/www
+ 1103  ll
+ 1104  cd campaign.medflick.com/
+ 1105  ll
+ 1106  cd
+ 1107  cd /etc/nginx/sites-available/
+ 1108  ll
+ 1109* 
+ 1110  ll
+ 1111  vim campaign.medflick.com 
+ 1112  cp -r campaign.medflick.com /home/ubuntu/backup
+
+
+ 1120  sudo vim campaign.medflick.com 
+ 1121  sudo nginx -t
+ 1122  sudo systemctl restart nginx
+ 1123  cd /var/www/html
+ 1124  ll
+ 1125  cd medflick.com/
+ 1126  ll
+ 1127  cd Medflick-new-Home/
+ 1128  ll
+ 1129  cd public/
+ 1130  ll
+ 1131  sudo mkdir campaign
+ 1132  cd ..
+ 1133  ll
+ 1134  cd ..
+ 1135  ll
+ 1136  cd ..
+ 1137  ll
+ 1138  cd ..
+ 1139  ll
+ 1140  cd campaign.medflick.com/
+ 1141  ll
+ 1142  sudo cp -r apollo/ /var/www/html/medflick.com/Medflick-new-Home/public/campaign/
+ 1143  cd
+ 1144  cd /var/www/html/medflick.com/Medflick-new-Home/public/campaign/
+ 1145  ll
+ 1146  cd apollo/
+ 1147  ll
+ 1148  cd
+ 1149  cd /home/ubuntu/backup/
+ 1150  ll
+ 1151  cat campaign.medflick.com 
+ 1152  cd 
+ 1153  cd /etc/nginx/sites-available/
+ 1154  ll
+ 
+ 1163  vim default
+ 1164  sudo nginx -t
+ 1165  sudo systemctl restart nginx
+ 1166  historys
+
+******************************************************
+Step 1: DNS CHECKER Tool ka Use Karne DNS ke A , CNAME Record check karna :-
+
+DNS Checker (free tool) ka use karke aap campaign.medflick.com ka DNS record dekh sakte hain.
+Record Type: Aapko A Record, CNAME, MX, ya TXT record check karne ki zaroorat ho sakti hai, depending on ki subdomain kis type ka record point kar raha hai.
+
+DNS Checker <--- search karein google m or iski website pe click karke open kar le: https://dnschecker.org/
+Hostname (search bar) mein ye dalain ----->  campaign.medflick.com daalein.
+Record Type m ye ----> ( A ya CNAME ) select karein (depending on subdomain configuration).
+Click on ----> search button.
+
+Step 3: Results
+
+Agar A Record hai, to      ----> aapko IP address milega, jahan campaign.medflick.com point kar raha hai.
+Agar CNAME Record hai, to  ----> aapko target domain ka naam milega, jaise sis.tdn.gtranslate.net.
+Agar MX Record hai, to     ----> aapko mail server ka information milega.
+
+*************************************************
+Step-by-Step Guide to Create CNAME Record in AWS Route 53:
+Step 1: AWS Console mein Login Karein
+AWS Console me login karein: AWS Management Console
+
+AWS Console me Route 53 ko search karein aur open karein.
+
+Step 2: Hosted Zone Select Karein
+Route 53 dashboard me, "Hosted Zones" section me jayein.
+
+Aapko apne domain medflick.com ka hosted zone yahan dikhai dega. Agar medflick.com ka hosted zone already Route 53 mein configured hai, to uspe click karein.
+
+Important: Agar aapka domain GoDaddy ya kisi aur registrar par registered hai, to aapko pehle name servers update karne honge (ye step neeche bataya gaya hai).
+
+Step 3: CNAME Record Create Karein
+Hosted Zone me "Create record" par click karein.
+
+Record details fill karein:
+
+Record name: hmn (Yeh subdomain ka naam hai, isse hmn.medflick.com banega).
+Record type: CNAME ko select karein.
+Value: sis.tdn.gtranslate.net (Yeh target domain hai jahan aapka CNAME point karega).
+TTL: Default TTL (300 seconds) chhodein.
+Routing policy: Simple routing ko select karein.
+Evaluate target health: No set karein.
+"Create records" button par click karein.
+
+Step 5: Update Name Servers on GoDaddy (Only if Domain is Registered with GoDaddy)
+Agar aapka domain GoDaddy par registered hai, to aapko apne domain ke name servers ko AWS Route 53 ke name servers se update karna hoga.
+
+GoDaddy account me login karein.
+My Products section me apne domain ko select karein.
+DNS Settings ya Manage DNS par click karein.
+Nameservers section me, Custom Nameservers select karein aur Route 53 ke name servers daalein. AWS Console me Hosted Zone page pe aapko ye name servers milenge (jaise ns-1234.awsdns-56.org).
+Changes save karne ke baad, DNS propagation mein time lag sakta hai (typically 1-24 hours).
+Step 6: Verify CNAME Record
+Jab DNS propagation complete ho jayegi, aap apne subdomain hmn.medflick.com ko sis.tdn.gtranslate.net ke saath point karte dekh sakenge.
+Summary of Steps:
+AWS Route 53 me Hosted Zone select karen.
+CNAME record ko create karen: hmn.medflick.com → sis.tdn.gtranslate.net.
+Agar aapka domain GoDaddy par registered hai, to name servers update karen.
+DNS Checker se record ki propagation verify karen.
+Wait for DNS Propagation (1-24 hours).
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+Command line method se cname add karna :-
+
+Haan, aap AWS CLI ka use karke Route 53 me CNAME record add kar sakte hain, jo aapke Amazon Web Services (AWS) account ka part hai.
+
+Agar aap AWS CLI ke through CNAME record add karna chahte hain, to aapko Route 53 ka use karna hoga, jo AWS ka managed DNS service hai.
+
+Prerequisites:
+AWS CLI ko apne machine par install karna hoga.
+
+AWS account me Route 53 setup hona chahiye, aur aapke paas domain (yaha pe medflick.com) registered hona chahiye.
+
+AWS CLI me apna account configure hona chahiye. Agar aapne pehle se AWS CLI configure nahi kiya hai, to command chalayein:
+
+bash
+Copy
+aws configure
+Yahan aapko AWS Access Key, Secret Key, Region, aur Output format enter karna hoga.
+
+Step 1: CNAME Record Ka JSON File Prepare Karein
+AWS CLI ke through CNAME record add karne ke liye aapko ek JSON file create karni hogi jo DNS record details ko define kare.
+
+Example JSON File (cname-record.json):
+json
+Copy
+{
+  "Comment": "Add CNAME record for hmn.medflick.com",
+  "Changes": [
+    {
+      "Action": "UPSERT",
+      "ResourceRecordSet": {
+        "Name": "hmn.medflick.com.",
+        "Type": "CNAME",
+        "TTL": 60,
+        "ResourceRecords": [
+          {
+            "Value": "sis.tdn.gtranslate.net"
+          }
+        ]
+      }
+    }
+  ]
+}
+Explanation:
+
+"Name": "hmn.medflick.com." — Yahaan pe aapke subdomain ka naam specify kiya gaya hai.
+"Value": "sis.tdn.gtranslate.net" — Yeh woh target value hai jahan aapka CNAME record point karega.
+"TTL": 60 — Yeh Time To Live hai, jo record ke cache time ko define karta hai (in seconds).
+"Action": "UPSERT" — Agar record already exist karta hai to use update karega, agar nahi to naya record create karega.
+Step 2: CNAME Record AWS CLI Se Add Karein
+Aapko Route 53 me apne hosted zone ID ki zarurat padegi. Hosted zone ID ko aap AWS Console ya CLI se fetch kar sakte hain.
+
+Fetch Hosted Zone ID:
+Agar aapke paas hosted zone ID nahi hai, to aap following command se apne hosted zones ko list kar sakte hain:
+
+bash
+Copy
+aws route53 list-hosted-zones
+Is command se aapko aapke domain ke liye hosted zone ID mil jayegi.
+
+Add CNAME Record:
+Ab, aap change-resource-record-sets command ko use karke CNAME record add kar sakte hain:
+
+bash
+Copy
+aws route53 change-resource-record-sets \
+    --hosted-zone-id Z3M3KABCDEF --change-batch file://cname-record.json
+Yahan:
+
+Z3M3KABCDEF — Aapka actual hosted zone ID hoga.
+file://cname-record.json — Aapne jo JSON file prepare ki thi, uska path hai.
+
+*****************************************
+
+
+1. Godaddy KE ACCOUNT M LOGIN KARNE OR USKE SERVER KO ACCESS KARNE KA SETUP :-
+
+GoDaddy ki website par jaake apne account mein login karein: GoDaddy Login
+Apna username aur password daal kar login karein.
+
+2. cPANEL YA PLESK PANEL KA ACCESS :-
+Agar aap shared hosting use kar rahe hain, toh GoDaddy aapko cPanel ya Plesk panel provide karta hai.
+
+*** cPANEL ACCESS KARNE KE LIYE :-
+
+Apne GoDaddy dashboard par, "MY PRODUCT" section me jaayein.
+Aapke hosting plan ke neeche cPANEL ka option milega.
+"MANAGE" par click karen, aur phir aapko cPanel ka interface milega.
+
+*** PLESK PANEL ACCESS KARNE KE LIYE :-
+
+Agar aap Plesk panel use karte hain, toh "MANAGE" ke button par click karne ke baad Plesk dashboard open ho jaayega.
+
+3. FTP (File Transfer Protocol) KE JARIYE FILE TRANSFER KARNA :-
+Agar aap apne website ke files ko directly edit karna chahte hain, toh aap FTP (File Transfer Protocol) ka use kar sakte hain.
+
+*** FTP SETUP KE LIYE :-
+
+GODADDY ke cPANEL ya PLESK panel mein FTP accounts ka option hota hai.
+Yahan se aap FTP username aur password generate kar sakte hain.
+Ek FTP client jaise FILEZILLA ko install karke, aap FTP credentials daal kar server ke files access kar sakte hain.
+
+4. SSH (Secure Shell) KE JARIYE ACCESS KARNA :-
+Agar aapko server pe COMMAND LINE ka access chahiye ho, toh aap SSH ka use kar sakte hain, lekin iske liye aapke paas SSH access enable hona chahiye (yeh feature kuch hosting plans me hota hai).
+
+*** SSH SETUP KE LIYE :-
+
+GoDaddy ka dashboard mein "SSH ACCESS" ka option hota hai jahan se aap SSH key generate kar sakte hain.
+Apni SSH client software (jaise PuTTY ya Terminal) se SSH login kar sakte hain.
+5. Website ka Database Access Karna
+Agar aapko apne website ke database (jaise MySQL) ko manage karna hai, toh cPanel ke "phpMyAdmin" tool ka use karke aap database ko access kar sakte hain.
+
+******************************
+Step 2: FTP ACCOUNT SETUP KARNA FILEZILLA SE FILE OR FOLDER KO LOCAL SYSTEM SE SERVER PR PAHUCHANA YA RAKHA va REMOTE SERVER va SERVER SE LOCAL SYSTEM PE LENA ya RAKHNA :-
+cPanel mein login karne ke baad:
+cPanel dashboard par jayein.
+Files section ke andar FTP ACCOUNT ka option milega. Is option ko click karein.
+Yahan se aap FTP ACCOUNT create kar sakte hain. Aapko yeh details deni hogi:
+Username: Apna username choose karein.
+Password: Apna password set karein (strong password rakhna zaroori hai).
+Directory: Aapko kis directory ko FTP se access karna hai, uska path de sakte hain (generally, aapko default directory use karna hoga, jo aapke domain ke files ko point karti hai).
+Quota: Agar chahen toh aap FTP account ke liye storage limit set kar sakte hain.
+
+Step 3: FTP CLIENT (FileZilla) SETUP KARNA :-
+FILEZILLA open karein aur Host, Username, Password, aur Port enter karen:
+
+Host: Yeh aapka domain name hoga ya aap apne server ka IP address bhi use kar sakte hain. Example: ftp.yourdomain.com ya 123.45.67.89.
+Username: Wo username jo aapne cPanel ke FTP Accounts section mein create kiya tha.
+Password: Wo password jo aapne cPanel mein set kiya tha.
+Port: FTP ke liye default port 21 hota hai OR SFTP ke liye default port 22 hota h.
+
+ISME hmm remote server ki .ppk file ko edit m jake save karke login kar sakte h.
+
+( edit-> sftp--> add key--> select the .ppk file--> open--> ok--> nwe site--> protocol-m-sftp--> host-m-ip address--> port-m-22--> logon type-m-normal--> user-m-ubuntu--> password-m-MedAdmin8050--> ok  ) ---> ye .ppk file se connect karne ke liye configuration h 
