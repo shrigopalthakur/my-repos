@@ -1,0 +1,380 @@
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt install nginx -y
+sudo ufw allow 'Nginx Full'
+sudo ufw enable
+sudo ufw status
+sudo systemctl start nginx
+sudo systemctl enable nginx
+sudo mkdir -p /var/www/novers.com/html
+sudo mkdir -p /var/www/justpress.com/html
+sudo chown -R $USER:$USER /var/www/novers.com/html
+sudo chown -R $USER:$USER /var/www/justpress.com/html
+echo '<html><body><h1>Welcome to Novers Website</h1></body></html>' | sudo tee /var/www/novers.com/html/index.html
+echo '<html><body><h1>Welcome to Just Press Website</h1></body></html>' | sudo tee /var/www/justpress.com/html/index.html
+
+################
+sudo vim /etc/nginx/sites-available/justpressfrontend                          <-----------  Website ka Frontend Live karne ke liye nginx ki File
+server {
+    listen 80;
+    server_name justpress.in or www.justpress.in;
+
+
+
+    root /var/www/html/;
+
+
+    gzip on;
+    gzip_proxied any;
+    gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss;
+    gzip_comp_level 5;
+    gzip_buffers 16 8k;
+    gzip_min_length 256;
+
+    add_header X-Content-Type-Options "nosniff";
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-XSS-Protection "1; mode=block";
+    #add_header Strict-Transport-Security  "max-age=31536000; includeSubDomains; preload";
+    add_header Referrer-Policy "same-origin";
+
+
+        location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+        location /justpressfrontend/_next/static {
+        root /var/www/html/justpressfrontend/.next/static;
+    }
+}
+
+
+sudo ln -s /etc/nginx/sites-available/justpressfrontend /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl restart nginx
+scp -i /path/to/your-key.pem /local/path/to/justpress-website/* ubuntu@your-ec2-public-ip:/var/www/justpress.com/html/
+sudo chown -R www-data:www-data /var/www/justpress.com/html
+sudo apt install certbot python3-certbot-nginx -y
+sudo certbot --nginx -d justpress.com -d www.justpress.com
+sudo systemctl status certbot.timer
+http://justpress.com
+https://justpress.com
+
+########
+ubuntu@ip-172-31-14-150:~$ cd /var/www/html/                <--------- iss wale location pr jakar folder banana h jiss naam ke folder m aap website ke code wali files ko rakhna chate ho ( Like:-  justpressfrontend )
+ubuntu@ip-172-31-14-150:/var/www/html$ ls
+justpressbackend  justpressfrontend  noversehealthcare  noversehealthcarebackend
+ubuntu@ip-172-31-14-150:/var/www/html$ cd justpressfrontend/
+ubuntu@ip-172-31-14-150:/var/www/html/justpressfrontend$ ls
+README.md  jsconfig.json  next.config.mjs  node_modules  package-lock.json  package.json  public  src
+sudo npm install
+sudo npm run build
+pm2 start npm --name "justpressfrontend" -- start
+pm2 list
+pm2 status
+pm2 log
+pm2 status
+
+########################
+(   or agar kabhi dubara live website m kuchh changes hote h or usko dubara live karna h to uska method ye h )
+
+ 1984  cd /home/ubuntu             <-------------------------------- Justpress ki website ko live karna
+ 1985  cd
+ 1986  sudo git clone -b main https://sdfkuegyufgiacyufacdhcvrvc@github.com/wikreate-Manish/justpress.git
+ 1987  cd justpress/
+ 1988  sudo cp -r src /var/www/html/justpressfrontend/
+ 1989  cd
+ 1990  sudo rm -rf justpress/
+ 1991  cd /var/www/html/justpressfrontend/
+ 1992  ls
+ 1993  sudo npm install
+ 1994  sudo npm run build
+ 1995  pm2 list
+ 1996  pm2 restart justpressbackend
+ 1997  pm2 list
+ 1998  pm2 log
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+sudo vim /etc/nginx/sites-available/justpressbackend          <-----------  Website ka Backend Live karne ke liye nginx ki File
+server {
+    server_name backendjustpress.justpress.in;
+
+    root /var/www/html/justpressbackend/public;
+    index index.php;
+
+
+    #fastcgi_read_timeout 300000;
+    #fastcgi_connect_timeout 30000;
+    server_tokens off;
+    keepalive_timeout 65;
+    keepalive_requests 100000;
+    charset utf-8;
+    client_max_body_size 100M;
+
+
+
+    location / {
+    allow all;
+
+    try_files $uri $uri/ /index.php?$query_string;
+}
+
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+
+
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+        fastcgi_read_timeout 300000;
+        fastcgi_connect_timeout 30000;
+        fastcgi_buffering on;
+        fastcgi_buffer_size 128k;
+        fastcgi_buffers 256 16k;
+        fastcgi_busy_buffers_size 256k;
+        fastcgi_temp_file_write_size 256k;
+
+    }
+
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/backendjustpress.justpress.in/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/backendjustpress.justpress.in/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+server {
+    if ($host = backendjustpress.justpress.in) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    listen 80;
+    server_name backendjustpress.justpress.in;
+    return 404; # managed by Certbot
+
+
+}
+
+
+###########
+ 2023  cd /home/ubuntu               <----------   Backend Server ko live karna
+ 2024  ls
+ 2025  sudo git clone -b master https://fdkgfujgrymkhesfryfgfbgrfhfhf@github.com/mani123456/education.git
+ 2026  ls
+ 2027  cd education/
+ 2028  ls
+ 2029  sudo cp -r app /var/www/html/justpressbackend/                 <----- jis jis folder m changes hue h ya jo folder live karna h BS usko copy kar dena h 
+ 2030  sudo cp -r resources /var/www/html/justpressbackend/                  or ye sare steps dhyan se use karne h  
+ 2031  sudo cp -r routes /var/www/html/justpressbackend/
+ 2032  sudo cp -r storage /var/www/html/justpressbackend/
+ 2033  ls
+ 2034  cd
+ 2035  sudo rm -rf education/
+ 2036  ls 
+ 2037  history
+
+
+ ( sudo cp -r /home/ubuntu/education /var/www/html/  ) <-- iss command se hmm education folder ko /var/www/html/ folder ke andar copy karte h )
+*********************************
+sudo vim /etc/nginx/sites-available/noversehealthcarefrontend          <-----------  Website ka Frontend Live karne ke liye nginx ki File
+server {
+    listen 80;
+    server_name noversehealthcare.com;
+
+
+
+    root /var/www/html/;
+
+
+    gzip on;
+    gzip_proxied any;
+    gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss;
+    gzip_comp_level 5;
+    gzip_buffers 16 8k;
+    gzip_min_length 256;
+
+    add_header X-Content-Type-Options "nosniff";
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-XSS-Protection "1; mode=block";
+    #add_header Strict-Transport-Security  "max-age=31536000; includeSubDomains; preload";
+    add_header Referrer-Policy "same-origin";
+
+
+        location / {
+        proxy_pass http://localhost:3002;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+        location /justpressfrontend/_next/static {
+        root /var/www/html/justpressfrontend/.next/static;
+    }
+}
+
+sudo ln -s /etc/nginx/sites-available/noversehealthcarefrontend /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl restart nginx
+scp -i /path/to/your-key.pem /local/path/to/novers-website/* ubuntu@your-ec2-public-ip:/var/www/novers.com/html/
+sudo chown -R www-data:www-data /var/www/novers.com/html
+sudo apt install certbot python3-certbot-nginx -y
+sudo certbot --nginx -d noversehealthcare.com -d www.noversehealthcare.com
+sudo systemctl status certbot.timer
+http://novers.com
+https://novers.com
+
+###############
+ubuntu@ip-172-31-14-150:~$ cd /var/www/html/                <--------- iss wale location pr jakar folder banana h jiss naam ke folder m aap website ke code wali files ya code ko rakhna chahte ho ( Like:-  noversehealthcare )
+ubuntu@ip-172-31-14-150:/var/www/html$ ls
+justpressbackend  justpressfrontend  noversehealthcare  noversehealthcarebackend
+ubuntu@ip-172-31-14-150:/var/www/html$ cd noversehealthcare/
+ubuntu@ip-172-31-14-150:/var/www/html/noversehealthcare$ ls
+README.md  jsconfig.json  next.config.mjs  node_modules  package-lock.json  package.json  public  src
+sudo npm install
+sudo npm run build
+pm2 start npm --name "noversehealthcare" -- start
+pm2 list
+pm2 status
+pm2 log
+pm2 status
+
+(   or agar kabhi dubara live website m kuchh changes hote h  or usko dubara live karna h to uska method h ki 
+2015  su ubuntu                          <--------------------------  Noversehaelthcare.com ki website ko live karna
+ 2016  cd /home/ubuntu
+ 2017  ls
+ 2018  sudo git clone -b main https://fvdsgydjkrdfrhfdkffafuyfgrfdjrdf@github.com/wikreate-Manish/noversehealthcare.git
+ 2019  ls
+ 2020  cd noversehealthcare/
+ 2021  sudo cp -r src /var/www/html/noversehealthcare
+ 2022  cd
+ 2023  ls
+ 2024  sudo rm -rf noversehealthcare/
+ 2025  cd /var/www/html/noversehealthcare
+ 2026  sudo npm install
+ 2027  sudo npm run build
+ 2028  pm2 list
+ 2029  pm2 restart noversehealthcare
+ 2030  pm2 log
+ 2031  pm2 status
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+sudo vim /etc/nginx/sites-available/noversehealthcarebackend                                  <-----------  Website ka Backend Live karne ke liye nginx ki File                                                            
+server {
+    server_name admin.noversehealthcare.com;
+
+    root /var/www/html/noversehealthcarebackend/public;
+    index index.php;
+
+
+    #fastcgi_read_timeout 300000;
+    #fastcgi_connect_timeout 30000;
+    server_tokens off;
+    keepalive_timeout 65;
+    keepalive_requests 100000;
+    charset utf-8;
+    client_max_body_size 100M;
+
+
+
+    location / {
+    allow all;
+
+    try_files $uri $uri/ /index.php?$query_string;
+}
+
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+
+
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+        fastcgi_read_timeout 300000;
+        fastcgi_connect_timeout 30000;
+        fastcgi_buffering on;
+        fastcgi_buffer_size 128k;
+        fastcgi_buffers 256 16k;
+        fastcgi_busy_buffers_size 256k;
+        fastcgi_temp_file_write_size 256k;
+
+    }
+
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+
+
+#    listen 443 ssl; # managed by Certbot
+#   ssl_certificate /etc/letsencrypt/live/backendjustpress.justpress.in/fullchain.pem; # managed by Certbot
+#   ssl_certificate_key /etc/letsencrypt/live/backendjustpress.justpress.in/privkey.pem; # managed by Certbot
+#   include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+#   ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+#server {
+#    if ($host = admin.noversehealthcare.com) {
+#        return 301 https://$host$request_uri;
+#    } # managed by Certbot
+
+
+
+
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/admin.noversehealthcare.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/admin.noversehealthcare.com/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+
+server {
+    if ($host = admin.noversehealthcare.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    server_name admin.noversehealthcare.com;
+    listen 80;
+    return 404; # managed by Certbot
+
+
+}
+
+##############
+2023  cd /home/ubuntu               <----------   Backend Server ko live karna
+ 2024  ls
+ 2025  sudo git clone -b master https://cdkfdrgfkrecfrgvkdfbhfgchrvfgdbrhb@github.com/iski jagah repo ka naam aayega last tk/noversehealthcarebackend.git
+ 2026  ls
+ 2027  cd education/
+ 2028  ls
+ 2029  sudo cp -r app /var/www/html/noversehealthcarebackend/
+ 2030  sudo cp -r resources /var/www/html/noversehealthcarebackend/
+ 2031  sudo cp -r routes /var/www/html/noversehealthcarebackend/
+ 2032  sudo cp -r storage /var/www/html/noversehealthcarebackend/
+ 2033  ls
+ 2034  cd
+ 2035  sudo rm -rf education/
+ 2036  ls 
+ 2037  history
+
+
+**************************************
+sudo apt update                                           <----------------- SSL Lagane ki commands website pr               
+sudo apt install certbot python3-certbot-nginx
+sudo certbot --nginx -d noversehealthcare.com -d www.noversehealthcare.com
+sudo certbot --nginx -d campaign.noversehealthcare.com -d www.campaign.noversehealthcare.com
