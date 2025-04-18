@@ -1,94 +1,78 @@
+ses-smtp-user.20250415-160502
+
+IAM user name
+ses-smtp-user.20250415-160502
+
+SMTP user name
+AKIAXYHNDW2BONA3SWVO
+
+SMTP password
+BASyLZnDFNbK3lwP3qUWsvQg2IgKRQwK/oTb0kJ5ZzYU
+
+
+#MAIL_HOST=email-smtp.ap-south-1.amazonaws.com
+#MAIL_PORT=587
+#MAIL_USERNAME=AKIA5EZVASK6GNFJJDAX
+#MAIL_PASSWORD="BBpUpHi8IC6fzZKd2I4hEr9OfnLxAWE/a956wNUYgh3c"
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="info@justpress.in"
+MAIL_FROM_NAME="${APP_NAME}"
+
+
+APP_NAME=BharatCare
+APP_ENV=production
+APP_KEY=
+APP_DEBUG=false
+APP_URL=https://dev.BharatCare.com
+
+
+
+
+
+
+
+
+
+ sudo git clone -b main https://FSDNCBFCXFKMCNV,MMX@github.com/wikreate-Manish/justpress.git
+ 1890  ls
+ 1891  
+ 1892  sudo cp -r src /var/www/html/justpressfrontend/
+ 1893  cd
+ 1894  sudo rm -rf justpress/
+ 1895  ls
+ 1896  cd /var/www/html/justpressfrontend/
+ 1897  sudo npm install
+ 1898  sudo npm run build
+ 1899  pm2 list
+ 1900  pm2 restart justpressbackend
+ 1901  pm2 log
+ 1902  cd
+
+
+
+
+
+
+
+148.66.157.29
+13.233.159.118
+
+arn:aws:cloudfront::533073213058:distribution/E2GL3IND4QXF36
+d2z1hlhb2jppfw.cloudfront.net.         <-- ye aws m route53 ke A record ki value m set tha justpress ki m
+https://d2z1hlhb2jppfw.cloudfront.net  <-- ye cloudfront m distribution domain name h 
+
+scp -r "C:/Users/Dell/Downloads/education" backendjustpress@148.66.157.29:/home/backendjustpress/public_html/
+
+
+git clone -b master https://DFSR,MFMNGJDMDF5QRDvsH8HMs9uGvxrWeywM2NVMLB@github.com/mani123456/education.git   <-- code clone karna github se local laptop pr download folder m
 ************************
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Node.js CI
-
-on:
-  push:
-    branches: [ "main" ]
- 
-
-jobs:
-  build:
-
-    runs-on: self-hosted
-
-    strategy:
-      matrix:
-        node-version: [18.20.6]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
-    steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-   
 
 ************************
 https://docs.google.com/spreadsheets/d/10hxKbXEo_PRRHL0rFQtWfVokd0abg2N4GDd4Ozy9ZyU/edit?gid=0#gid=0   <-- Landing pages ki Google sheet 
 
 ************************
 
-name: Deploy Backend to EC2
-
-on:
-  push:
-    branches:
-      - master  # Ya jo bhi aapka production branch ho, jisme changes deploy karne ho -- ye bhi master hi h
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      # Checkout the latest code
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      # Set up SSH key for EC2
-      - name: Set up SSH key for EC2
-        uses: webfactory/ssh-agent@v0.5.3
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}  # Use your secret key's name Yahi h
-
-      # SSH into EC2 and copy the code
-      - name: Deploy to EC2
-        run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.JUSTPRESSBACKEND }} << 'EOF'
-            cd /var/www/html/justpressbackend  # Ensure this directory is where your backend code resides
-            git pull origin master  # Pull the latest code from the master branch
-          EOF
-
-
-
-****************************
-on:
-  push:
-     branches:
-       - master
-
-jobs:
-  run_pull:
-    name: run pull
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: install ssh keys
-    #check this thread to understand why its needed:
-    #https://stackoverflow.com/a/70447517
-    run: |
-      install -m 600 -D /dev/null ~/.ssh/id_ed25519
-      echo "${( secrets.SSH_PRIVATE_KEY )}" > ~/.ssh/id_ed25519
-      ssh-keyscan -it ${( secrets.SSH_HOST )} > ~/.ssh/known_hosts
-  - name: connect and pull
-    run: ssh ${( secrets.SSH_USER )}@${( secrets.SSH_HOST )} "cd ${( secrets.WORK_DIR )} && git checkout ${( secrets.MAIN_BRANCH )} && git pull && exit"
-  - name: cleanup
 
 ****************************
 [
@@ -109,10 +93,10 @@ jobs:
 **********
 aws s3api put-object-acl --bucket justpresseducation --key "upload_photo/67ee63d9b23e1st-img.png" --acl public-read   <--- ye command chalayi thi iss error ko solve karne ke liye ( jo pdf m image generate nhi ho pa rahi thi ).
 *********
-
+List of Digital Minds Technologies Inc. Employees
 *********
 
-List of Digital Minds Technologies Inc. Employees
+
 
 CREATE TABLE admission_laters (
   id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -152,7 +136,7 @@ Bharat1@2023.
  2022  su ubuntu
  2023  cd /home/ubuntu               <----------   Backend Server ko live karna --> JustpressBackend wale ko
  2024  ls
- 2025  sudo git clone -b master https://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@github.com/mani123456/education.git
+ 2025  sudo git clone -b master https://TQ4FVb2WPsPIWdldBySaqbM0CLeo9a3riCJq@github.com/mani123456/education.git
  2026  ls
  2027  cd education/
  2028  ls
@@ -276,8 +260,8 @@ ADD COLUMN representative_name VARCHAR(500) NULL;
 ALTER TABLE agent                                        <-------- -- delete the column in 'agent' table in of this name ( company_name ) in JustPressDatabase
 DROP COLUMN company_name;                         
 ****************************************
-CREATE USER 'justpressuser'@'localhost' IDENTIFIED BY 'just@8050';     <---- mysql user create karna with password
-DROP USER 'justpressuser'@'localhost';                                 <---- mysql user ko delete karna
+CREATE USER 'justpressuser'@'localhost' IDENTIFIED BY 'just@8050';     <-- mysql user create karna with password
+DROP USER 'justpressuser'@'localhost';                                 <-- mysql user ko delete karna
 mysql -u justpressuser -p                                              <-- mysql user se login karna
 CREATE DATABASE justpressdatabase;                                     <-- mysql m database create karna
 SHOW DATABASES;                                                        <-- mysql m database check karna ki kitne database h
@@ -294,8 +278,17 @@ DELETE FROM lead;                                                      <-- table
 Agar aap kisi specific user ko apne naye database par access dena chahte hain, to aap user ke liye permissions set kar sakte hain. Jaise:
 (   GRANT ALL PRIVILEGES ON justpressdatabase.* TO 'justpressuser'@'localhost' IDENTIFIED BY 'yourpassword';  
     FLUSH PRIVILEGES;          )
-
+******************************************************************************
 mysqldump -u justpressuser -p justpressdatabase > justpressbackup_file.sql   <-------- mysql ke database ka backup create karne ke liye command run out from mysql 
+******************************************************************************
+UPDATE justpressdatabase.users
+SET status = 1,
+    email_verified_at = NOW()                   <-- justpressdatabase ke users table ke andar email_verified_at column ke andar uska status (Null se 1) karna. 
+WHERE username = 'Info'
+  AND email = 'Info@justpress.co.in'
+  AND status IS NULL;
+
+*********************************************************
 
 SHOW VARIABLES LIKE 'log_bin';                   <-- Database ka Logs Enable h ya nhi h check karne ke liye. ( on ) aata h to Logs ban rahe honge un sabhi changes ko jo hmm database m karenge.
 SHOW VARIABLES LIKE 'log_bin_basename';          <-- Hmare Logs kis location pr store ho rahe h wo check karne ke liye.
@@ -769,15 +762,23 @@ i'd  :- 100363075           <---- Lalit or suryahospital.com server ke credentia
 Pass :- Feb2025!20@909
 
 i'd  :- hello@wikreate.in   <---- blogLalit.com ke Godaddy ke account ke credentials
-Pass :- Wiki@1234!
+Pass :- Apr@1234!
 
 i'd  :- 583619210           <---- Osama Godaddy Account i'd and Password
 Pass :- Osama19@Heba20
 
+Admin Username :- justpress    <--- New Godaddy justpressvps server
+Pass :- It93l%O@3gIR
+backendjustpress        <--- Backend new account justpress Godaddy
+Backjust@123!@#
+
+frontjustpress          <---  Frontend new account justpress Godaddy
+Frontjust@123!@#
+
 ssh -i medflick_stage.pem ubuntu@13.201.11.181   <----- login by pem file or user-name or password
 pass :- MedAdmin8050
 
-ssh -p 50489 ubuntu@160.30.207.37               thelalit.com Aws account  Server 1 Details  <--- login by port no. or user-name or password
+ssh -p 50489 ubuntu@160.30.207.37               thelalit.com Aws account  Server 1 Details  <--- login by port no. or user-name or password #Disallow: /wp-includes/
 pass :- Tm3c6v23VHXsf9gDVwcP
 
 ssh -p 50489 ubuntu-lalit@160.30.207.38         thelalit.com Aws account Server 2 Details  <--- login by port no. or user-name or password
@@ -1800,3 +1801,90 @@ Port: FTP ke liye default port 21 hota hai OR SFTP ke liye default port 22 hota 
 ISME hmm remote server ki .ppk file ko edit m jake save karke login kar sakte h.
 
 ( edit-> sftp--> add key--> select the .ppk file--> open--> ok--> nwe site--> protocol-m-sftp--> host-m-ip address--> port-m-22--> logon type-m-normal--> user-m-ubuntu--> password-m-MedAdmin8050--> ok  ) ---> ye .ppk file se connect karne ke liye configuration h 
+
+*****************************************************
+Website ke Backend ke liye AUTOMATION SET KARNA GITHUB SE  :--
+
+Github --> Setting --> Secrets and variables --> action --> new repository secret --> ab isme ye teeno EC2_SSH_KEY or REMOTE_USER or REMOTE_HOST naam se inki iss tarah ki repository secret add kiye jayenge Value ke sath 
+
+
+EC2_SSH_KEY    <--name
+
+-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW           <-- Value
+QyNTUxOQAAACDCgHsLKkmeJl/8wHbOaOM7CxvSlQMq+bzXzU4obbAx8AAAAKDD+WVnw/ll
+ZwAAAAtzc2gtZWQyNTUxOQAAACDCgHsLKkmeJl/8wHbOaOM7CxvSlQMq+bzXzU4obbAx8A
+AAAECYtSkuPQv1BT2D8WH9siYqzaQKCIcL5GX2psYpttdkd8KAewsqSZ4mX/zAds5o4zsL
+G9KVAyr5vNfNTihtsDHwAAAAF3VidW50dUBpcC0xNzItMzEtMTQtMTUwAQIDBAUG
+-----END OPENSSH PRIVATE KEY-----
+
+
+
+REMOTE_USER   <-- name
+ubuntu        <-- value
+
+
+REMOTE_HOST      <--name
+13.233.159.118   <-- value
+
+**************************************************
+Ab Actions pr click karo -->  set up a workflow yourself --> iss file m ye code likhna h (ye to isi kaam ke liye h lekin sabhi kaam ke liye sabhi file alag alag likhni padengi). ye file to jo changes hmare files ya folder m hue h unko github se server pr copy karne ke liye h bs   
+
+
+
+
+name: Deploy Laravel to EC2
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
+
+      - name: Get list of changed files and directories
+        id: changes
+        run: |
+          echo "::set-output name=files::$(git diff --name-only HEAD~1 HEAD)"
+          echo "::set-output name=dirs::$(git diff --name-only HEAD~1 HEAD | grep '/$' | sed 's|/.*||' | sort -u)"
+
+      - name: Deploy changed files to EC2
+        run: |
+          # Deploy files
+          for file in ${{ steps.changes.outputs.files }}; do
+            if [ -f "$file" ]; then
+              scp -o StrictHostKeyChecking=no -i ${{ secrets.EC2_SSH_KEY }} "$file" ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/var/www/html/justpressbackend/"$file"
+            fi
+          done
+
+          # Deploy directories
+          for dir in ${{ steps.changes.outputs.dirs }}; do
+            scp -o StrictHostKeyChecking=no -i ${{ secrets.EC2_SSH_KEY }} -r "$dir" ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/var/www/html/justpressbackend/"$dir"
+          done
+
+
+Click on Commit changes
+and now Finish.
+**************************************************
+ समाधान: set-output को $GITHUB_OUTPUT से बदलना
+आपके वर्कफ़्लो में set-output कमांड को $GITHUB_OUTPUT के साथ बदलने के लिए निम्नलिखित संशोधन करें:
+
+पुराना तरीका:
+echo "::set-output name=files::$(git diff --name-only HEAD~1 HEAD)"
+echo "::set-output name=dirs::$(git diff --name-only HEAD~1 HEAD | grep '/$' | sed 's|/.*||' | sort -u)"
+
+नया तरीका:                     <---------------------- Agar iss file m koi dikkat aayegi to NEW Method use karna padega
+echo "files=$(git diff --name-only HEAD~1 HEAD)" >> $GITHUB_OUTPUT
+echo "dirs=$(git diff --name-only HEAD~1 HEAD | grep '/$' | sed 's|/.*||' | sort -u)" >> $GITHUB_OUTPUT
+
