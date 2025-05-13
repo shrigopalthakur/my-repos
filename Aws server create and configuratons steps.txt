@@ -1,0 +1,457 @@
+1. Sabse pahle Ec2 create karna h apne project ke hisab se configuration karke like:- instance type, image, Ram, Disk, ye sab cheej sahi se set karke
+2. Route53 m hosted zone create karo phir uske andar A record C name record NS record or MX or TXT ye sare record create karne padenge 
+3. Godaddy pr jakar jaha domain h hamara jis domain se hamko apne server ke ip ko point karna us domain m jake MANAGE pr click karke aws ke NS record ko waha pr paste kar denge or save kar denge Domain aws server ke ip ke sath pointh ho jayega.
+4. cloudfront pr jake Distribution create kare
+5. s3 bucket create kare apne project ke hisab se
+6. Amplify ka bhi use kar sakte h agar koi website host karni h to
+7. Amazon Simple Email Service  --isme --> Identities create karni padengi or domain or official mail id ko verify karna padega pahle phir website ki official email id ko production ke liye request karna padegi get set up ya account dashboard se phir aws jb usko ko production ke liye allow kar dega tb hmm website ke official email se kisi ko bhi or kitni bhi mail bhej sakte h 1 din m or phir uske baad SMTP Credentials m jakar smtp credential create karke unko website ki Backend ki .env file m set kar denge or phir hamari email service start ho jayegi proper kaam karne ke liye. 
+8. CloudWatch                       <-- ye Tool server pr monitoring karne ke kaam aata h
+9. Simple Notification Service      <-- isko hmm server pr kuchh bhi ho to hmare pass notification aa jaye by Email or Text Massage on mobile is liye use karte h jaise ki cpu ka utilization high hone pr notification dena ya etc...
+
+
+
+#sudo apt update
+#sudo apt install nginx -y
+#sudo systemctl enable nginx
+#sudo systemctl start nginx
+#sudo systemctl status nginx
+#sudo apt update && sudo apt upgrade -y
+#sudo apt install curl wget git unzip software-properties-common ca-certificates lsb-release -y
+#curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+source ~/.bashrc                                                 <--Install NVM (Node Version Manager)
+#nvm --version
+#nvm install --lts
+nvm use --lts
+nvm alias default 'lts/*'                                         <--Install latest LTS Node.js (comes with npm)
+#node -v
+npm -v
+#npm install -g pm2
+pm2 --version                                                      <--Install pm2 globally
+#pm2 startup                                  <--PM2 startup command auto-restart on reboot --(iss command ko dhyan se chalana h kyunki ye process ko backup m run kar deti h jisse CPU utilization badh jata h)
+#sudo add-apt-repository ppa:ondrej/php -y
+sudo apt update                                                     <-- Install Latest PHP
+#sudo apt install php php-cli php-fpm php-mysql php-curl php-mbstring php-xml php-bcmath php-zip php-gd php-intl -y        Install latest PHP with common extensions
+#php -v                                                             <-- Check version:
+#sudo vim /var/www/html/info.php                                    <-- PHP info page setup test (nginx ke sath)
+                               i                                    <-- ye ( i ) press karni h file m kuchh bhi likhne ke liye 
+                                <?php phpinfo(); ?>             <-- iss file m ye likhna h or ESC and :wq!
+#sudo systemctl restart php*-fpm
+#sudo systemctl restart nginx
+
+
+
+
+
+#cd /etc/nginx/sites-available
+#vim justpressfrontend
+server {
+    listen 80;
+    server_name justpress.in or www.justpress.in;        <--- Ye website ka Domain name h
+
+
+
+    root /var/www/html;                                   <--- iss path pr hamari website ka code rakha jayega
+
+
+    gzip on;
+    gzip_proxied any;
+    gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss;
+    gzip_comp_level 5;
+    gzip_buffers 16 8k;
+    gzip_min_length 256;
+
+    add_header X-Content-Type-Options "nosniff";
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-XSS-Protection "1; mode=block";
+    #add_header Strict-Transport-Security  "max-age=31536000; includeSubDomains; preload";
+    add_header Referrer-Policy "same-origin";
+
+
+        location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+        location /justpressfrontend/_next/static {
+        root /var/www/html/justpressfrontend/.next/static;
+    }
+
+}
+
+#sudo ln -s /etc/nginx/sites-available/justpressfrontend /etc/nginx/sites-enabled/
+#vim justpressbackend
+server {
+    server_name backendjustpress.justpress.in;            <--- Ye backend ka subdomain name h or ye sab hmko cloudfront m jake create karne padte h   
+
+    root /var/www/html/justpressbackend/public;
+    index index.php;
+
+
+    #fastcgi_read_timeout 300000;
+    #fastcgi_connect_timeout 30000;
+    server_tokens off;
+    keepalive_timeout 65;
+    keepalive_requests 100000;
+    charset utf-8;
+    client_max_body_size 100M;
+
+
+
+    location / {
+    allow all;
+
+    try_files $uri $uri/ /index.php?$query_string;
+}
+
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+
+
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+        fastcgi_read_timeout 300000;
+        fastcgi_connect_timeout 30000;
+        fastcgi_buffering on;
+        fastcgi_buffer_size 128k;
+        fastcgi_buffers 256 16k;
+        fastcgi_busy_buffers_size 256k;
+        fastcgi_temp_file_write_size 256k;
+
+    }
+
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/backendjustpress.justpress.in/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/backendjustpress.justpress.in/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+server {
+    if ($host = backendjustpress.justpress.in) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    listen 80;
+    server_name backendjustpress.justpress.in;
+    return 404; # managed by Certbot
+
+
+}
+
+#sudo ln -s /etc/nginx/sites-available/justpressbackend /etc/nginx/sites-enabled/
+#cat novershealthcare
+server {
+    listen 80;
+    server_name noversehealthcare.com;            <-- Ye Main Domain h iss website ka
+
+
+
+    root /var/www/html/;
+
+
+    gzip on;
+    gzip_proxied any;
+    gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss;
+    gzip_comp_level 5;
+    gzip_buffers 16 8k;
+    gzip_min_length 256;
+
+    add_header X-Content-Type-Options "nosniff";
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-XSS-Protection "1; mode=block";
+    #add_header Strict-Transport-Security  "max-age=31536000; includeSubDomains; preload";
+    add_header Referrer-Policy "same-origin";
+
+
+        location / {
+        proxy_pass http://localhost:3002;                    <-- Yaha pr jo ye 3002 no. h ye no. 3002 ya 3003 jb change karte h jab hamre ek server pr 2 ya usse jyada website host hoti h 
+        proxy_http_version 1.1;                                  ab justpress wali website ke liye 3000 ka use huaa h or iske liye 3002 ka use kiya h.
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+        location /noversehealthcare/_next/static {
+        root /var/www/html/noversehealthcare/.next/static;
+    }
+}
+
+#sudo ln -s /etc/nginx/sites-available/novershealthcare /etc/nginx/sites-enabled/
+#vim novershealthcarebackend
+server {
+    server_name admin.noversehealthcare.com;              <-- Ye iska subdomain h or ye sab hmko cloudfront m jake create karne padte h 
+
+    root /var/www/html/noversehealthcarebackend/public;
+    index index.php;
+
+
+    #fastcgi_read_timeout 300000;
+    #fastcgi_connect_timeout 30000;
+    server_tokens off;
+    keepalive_timeout 65;
+    keepalive_requests 100000;
+    charset utf-8;
+    client_max_body_size 100M;
+
+
+
+    location / {
+    allow all;
+
+    try_files $uri $uri/ /index.php?$query_string;
+}
+
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+
+
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+        fastcgi_read_timeout 300000;
+        fastcgi_connect_timeout 30000;
+        fastcgi_buffering on;
+        fastcgi_buffer_size 128k;
+        fastcgi_buffers 256 16k;
+        fastcgi_busy_buffers_size 256k;
+        fastcgi_temp_file_write_size 256k;
+
+    }
+
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+
+
+#    listen 443 ssl; # managed by Certbot
+#   ssl_certificate /etc/letsencrypt/live/backendjustpress.justpress.in/fullchain.pem; # managed by Certbot
+#   ssl_certificate_key /etc/letsencrypt/live/backendjustpress.justpress.in/privkey.pem; # managed by Certbot
+#   include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+#   ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+#server {
+#    if ($host = admin.noversehealthcare.com) {
+#        return 301 https://$host$request_uri;
+#    } # managed by Certbot
+
+
+
+
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/admin.noversehealthcare.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/admin.noversehealthcare.com/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+
+server {
+    if ($host = admin.noversehealthcare.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    server_name admin.noversehealthcare.com;
+    listen 80;
+    return 404; # managed by Certbot
+
+
+}
+
+#cd /var/www/html/                              <-- Ab iss path pr jake hmko website ke code ko rakhna h
+#mkdir justpressfrontend                        <-- Ab website ke naam se ek folder banana h aise hi jiske andar hm github se ya local se code ki files or folder ko rakh sake
+#cd justpressfrontend/                           <--  Ab iss folder ke andar justpress website ke frontend ke code ki files or folder ko github se clone kar lo ya local se kaise bhi rakh do
+#cd ..                           <-- iss command se ab wapas /var/www/html/ is location pr aa jaoge ek directory peechhe
+#mkdir justpressbackend
+#cd justpressbackend              <--  Ab iss folder ke andar justpress website ke backend ke code ki files or folder ko github se clone kar lo ya local se kaise bhi rakh do
+#cd ..                            <-- iss command se hmm directory peechhe chale jate h
+#mkdir noversehealthcare 
+# cd noversehealthcare            <--  Ab iss folder ke andar noversehealthcare website ke frontend ke code ki files or folder ko github se clone kar lo ya local se kaise bhi rakh do
+#cd ..
+#mkdir noversehealthcarebackend   
+#cd noversehealthcarebackend       <--  Ab iss folder ke andar justpress website ke backend ke code ki files or folder ko github se clone kar lo ya local se kaise bhi rakh do
+#cd ..
+#sudo systemctl nginx -t
+#sudo systemctl restart nginx
+#sudo systemctl reload nginx
+#ll
+drwxrwxrwx 15 ubuntu ubuntu 4096 Apr 23 13:17 justpressbackend/
+drwxr-xr-x  7 root   root   4096 Mar 26 07:58 justpressfrontend/
+drwxr-xr-x  7 root   root   4096 Mar 26 09:41 noversehealthcare/
+drwxrwxrwx 15 root   root   4096 Apr 15 12:59 noversehealthcarebackend/
+
+
+
+***************************************************************************************************
+
+Quick Recap:-- Copy-Paste Install Script (All in One)
+Aap chahein to ye poora script ek sath chalaa sakte hain:
+
+# System Update
+sudo apt update && sudo apt upgrade -y
+sudo apt install curl wget git unzip software-properties-common ca-certificates lsb-release gnupg -y
+
+# Install NVM
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+source ~/.bashrc
+
+# Install Latest LTS Node.js + npm
+nvm install --lts
+nvm use --lts
+nvm alias default 'lts/*'
+
+# Install PM2
+npm install -g pm2
+pm2 startup
+
+# Install PHP (Latest 8.3)
+sudo add-apt-repository ppa:ondrej/php -y
+sudo apt update
+sudo apt install php php-cli php-fpm php-mysql php-curl php-mbstring php-xml php-bcmath php-zip php-gd php-intl -y
+
+# Restart services
+sudo systemctl restart php*-fpm
+sudo systemctl restart nginx
+
+
+
+***************************************
+ 1929  sudo git clone -b main https://jNww5BC4MLTKXmi3SozmZcGWwUBZxT3oOvRb@github.com/wikreate-Manish/justpress.git
+ 1930  ls
+ 1931  cd justpress/
+ 1932  sudo cp -r src /var/www/html/justpressfrontend/
+ 1933  sudo cp -r public /var/www/html/justpressfrontend/
+ 1934  cd
+ 1935  sudo rm -rf justpress
+ 1936  cd /var/www/html/justpressfrontend/
+ 1937  sudo npm install
+ 1938  sudo npm run build
+ 1939  pm2 list
+ 1940  pm2 restart justpressbackend
+ 1941  pm2 log
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+ 1460  sudo git clone -b main https://SBkXQMEfgHysLJv3cm1bpE9mbnm4ok2aa9DO@github.com/wikreate-Manish/noversehealthcare.git
+ 1461  ls
+ 1462  cd noversehealthcare/
+ 1463  sudo cp -r src /var/www/html/noversehealthcare
+ 1464  ll
+ 1465  cat .env
+ 1466  sudo cp -r .env /var/www/html/noversehealthcare
+ 1467  cd
+ 1468  ls
+ 1469  sudo rm -rf noversehealthcare/
+ 1470  cd /var/www/html/noversehealthcare
+ 1471  ll
+ 1472  cat .env
+ 1473  sudo npm install
+ 1474  sudo npm run build
+ 1475  pm2 list
+ 1476  pm2 restart noversehealthcare
+ 1477  pm2 log
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+ 1743  sudo git clone -b master https://WMR4T70E5QRDvsH8HMs9uGvxrWeywM2NVMLB@github.com/mani123456/education.git
+ 1744  cd education/
+ 1745  sudo cp -r app /var/www/html/justpressbackend/
+ 1746  cd
+ 1747  sudo rm -rf education/
+ 1748  ls
+ 1749  history
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+ 1886  ls
+ 1887  mysqldump -u justpressuser -p justpressdatabase > justpressbackup
+ 1888  ls
+###################################
+ 1891  ls
+ 1892  aws s3 cp /home/ubuntu/justpressbackup s3://backup-justpress/
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ 1900  crontab -l
+ 1901  cat backup.sh
+ 1902  vim backup.sh
+ 1903  crontab -l
+ 1904  chmod +x /home/ubuntu/backup.sh
+ 1905  ls
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ 1831  vim bootstrap/
+ 1832  sudo php artisan cache:clear
+ 1833  sudo php artisan config:clear    <---- innn commands ko dhyan se chalana h ye cache clear karne ke liye h
+ 1834  sudo php artisan route:clear
+ 1835  sudo php artisan view:clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Amplify pr website host karte time ye file banti h waha pr
+--> App
+--> Hosting
+--> Build settings
+--> amplify.yml
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci --cache .npm --prefer-offline
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: build
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - .npm/**/*
+
+-->Build image settings
+Using default image(amazon linux default)
