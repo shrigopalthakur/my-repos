@@ -492,7 +492,7 @@ REDIS_PORT=6379
 MAIL_MAILER=sendmail
 MAIL_HOST=email-smtp.ap-south-1.amazonaws.com
 MAIL_PORT=587
-MAIL_USERNAME=AKIA5EZVASK6GNFJJDAX
+MAIL_USERNAME=jasglAKIA5EZVASK6GNFJJDAX
 MAIL_PASSWORD="BBpUpHi8IC6fzZKd2I4hEr9OfnLxAWE/a956wNUYgh3c"
 MAIL_ENCRYPTION=tls
 MAIL_FROM_ADDRESS="internal@medflick.com"
@@ -523,3 +523,219 @@ VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 
 
 iss tarah ki configuration hoti h isme 
+&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+ye noverse ki .env file h 
+
+APP_NAME=NoverseHealthcare
+APP_ENV=local
+APP_KEY=base64:Kwpo96OzR3qHOn1XO73vjWeEhFIyI5Son48zLeRXU4I=
+APP_DEBUG=true
+APP_URL=
+
+LOG_CHANNEL=stack
+LOG_DEPRECATIONS_CHANNEL=null
+LOG_LEVEL=debug
+
+DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=noversdatabase
+DB_USERNAME=justpressuser
+DB_PASSWORD="Just@8050"
+
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+FILESYSTEM_DISK=s3
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+
+MEMCACHED_HOST=127.0.0.1
+
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+#MAIL_MAILER=sendmail
+#MAIL_HOST=smtp.gmail.com
+#MAIL_PORT=587
+#MAIL_USERNAME=demokumar444@gmail.com
+#MAIL_PASSWORD="otmimqmwbaergomu"
+MAIL_HOST=email-smtp.ap-south-1.amazonaws.com
+MAIL_PORT=587
+MAIL_USERNAME=kjSVaAKIAXYHNDW2BONA3SWVO
+MAIL_PASSWORD="BASyLZnDFNbK3lwP3qUWsvQg2IgKRQwK/oTb0kJ5ZzYU"
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="info@noversehealthcare.com"
+MAIL_FROM_NAME="${APP_NAME}"
+
+AWS_ACCESS_KEY_ID=ksgksAKIAXYHNDW2BKMQJVSBA
+AWS_SECRET_ACCESS_KEY=OCY2O2Kfyai18s+4HccOGZ1XOQYv1qulxiGky6JR
+AWS_DEFAULT_REGION=ap-south-1
+AWS_BUCKET=noverse
+AWS_CLOUDFLARE_URL=https://noverse.s3.ap-south-1.amazonaws.com
+AWS_USE_PATH_STYLE_ENDPOINT=false
+
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+PUSHER_HOST=
+PUSHER_PORT=443
+PUSHER_SCHEME=https
+PUSHER_APP_CLUSTER=mt1
+
+VITE_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+VITE_PUSHER_HOST="${PUSHER_HOST}"
+VITE_PUSHER_PORT="${PUSHER_PORT}"
+VITE_PUSHER_SCHEME="${PUSHER_SCHEME}"
+VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+VITE_APP_NAME="${APP_NAME}"
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+ubuntu@ip-172-31-47-153:~$ ls
+aws  backup  crm_backup.sql  install  med-crm-22-5-25.file.sql  medflickdbbackup  nodesource_setup.sh  openssl.cnf  scripts  ssl
+ubuntu@ip-172-31-47-153:~$ cd scripts/
+ubuntu@ip-172-31-47-153:~/scripts$ ll -a
+total 64
+drwxrwxr-x  3 ubuntu ubuntu  4096 Jan 21 16:48 ./
+drwxrwxr-x 16 ubuntu ubuntu  4096 May 29 16:08 ../
+drwxrwxr-x  2 ubuntu ubuntu  4096 Jan  3 15:54 __pycache__/
+-rw-rw-r--  1 ubuntu ubuntu 35466 Aug  1  2024 asiancamp.sql
+-rwxr-xr-x  1 root   root    1458 Dec 11 18:30 backup.sh*
+-rwxr-xr-x  1 root   root     690 Dec  3 12:46 delete.sh*
+-rwxr-xr-x  1 root   root     233 Dec 11 18:09 schedule.sh*
+-rwxr-xr-x  1 root   root     492 Nov 20  2024 temp.sh*
+ubuntu@ip-172-31-47-153:~/scripts$ cat backup.sh
+#!/bin/bash
+
+# MySQL database credentials
+DB_USER="inpatientscare_7Apollo"
+DB_PASS="inPatient@#123"
+DB_NAME="medflick"
+
+
+
+
+# Backup directory
+BACKUP_DIR="/home/ubuntu/backup"
+
+GIT_REPO_PATH="/home/ubuntu/medflickdbbackup"
+GIT_REPO_URL="https://kadasjkas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@github.com/medflick/medflick-db-backup.git"
+
+
+# Date format for the backup file
+DATE_FORMAT=$(date +"%Y%m%d%H%M%S")
+
+BACKUP_FILE="$BACKUP_DIR/MEDFLICK_${DATE_FORMAT}.sql"
+#BACKUP_FILE1="$BACKUP_DIR/CRM_${DATE_FORMAT}.sql"
+
+# Dump the MySQL database
+#mysqldump -u $DB_USER -p$DB_PASSWORD $DB_NAME > $BACKUP_FILE
+
+echo "Backing up database..."
+mysqldump -u $DB_USER -p$DB_PASS $DB_NAME > $BACKUP_FILE
+#mysqldump -u $DB_USER1 -P$DB_PASS1 $DB_NAME1 > $BACKUP_FILE1
+
+if [ $? -ne 0 ]; then
+  echo "Error: Database backup failed!"
+  exit 1
+else
+  echo "Database backup successful: $BACKUP_FILE"
+fi
+
+# Step 2: Move backup to the Git repository
+echo "Moving backup to the Git repository..."
+cp $BACKUP_FILE $GIT_REPO_PATH
+#cp $BACKUP_FILE1 $GIT_REPO_PATH
+
+# Step 3: Commit and push to GitHub
+cd $GIT_REPO_PATH
+
+# Add backup file to Git
+git add $(basename $BACKUP_FILE)
+
+# Commit the backup file
+git commit -m "Database backup on $DATE"
+
+# Push to GitHub
+git push $GIT_REPO_URL
+
+if [ $? -ne 0 ]; then
+  echo "Error: Git push failed!"
+  exit 1
+else
+  echo "Backup successfully pushed to GitHub."
+fi
+
+cd /home/ubuntu/backup/  && rm -rf *
+cd /home/ubuntu/medflickdbbackup/ && rm -rf *
+ubuntu@ip-172-31-47-153:~/scripts$
+ubuntu@ip-172-31-47-153:~/scripts$ ll -a
+total 64
+drwxrwxr-x  3 ubuntu ubuntu  4096 Jan 21 16:48 ./
+drwxrwxr-x 16 ubuntu ubuntu  4096 May 29 16:08 ../
+drwxrwxr-x  2 ubuntu ubuntu  4096 Jan  3 15:54 __pycache__/
+-rw-rw-r--  1 ubuntu ubuntu 35466 Aug  1  2024 asiancamp.sql
+-rwxr-xr-x  1 root   root    1458 Dec 11 18:30 backup.sh*
+-rwxr-xr-x  1 root   root     690 Dec  3 12:46 delete.sh*
+-rwxr-xr-x  1 root   root     233 Dec 11 18:09 schedule.sh*
+-rwxr-xr-x  1 root   root     492 Nov 20  2024 temp.sh*
+ubuntu@ip-172-31-47-153:~/scripts$ cat delete.sh
+#!/bin/bash
+
+# Email address to delete messages for
+TARGET_EMAIL="ubuntu@medflick.com"
+
+echo "Searching for messages from $TARGET_EMAIL in the Postfix queue..."
+
+# Find all message IDs associated with the target email
+MESSAGE_IDS=$(sudo postqueue -p | grep -i "$TARGET_EMAIL" | awk '{print $1}' | sed 's/*//')
+
+# Check if there are any messages to delete
+if [ -z "$MESSAGE_IDS" ]; then
+    echo "No messages found for $TARGET_EMAIL."
+    exit 0
+fi
+
+echo "Found messages. Deleting them..."
+
+# Loop through each message ID and delete it
+for ID in $MESSAGE_IDS; do
+    echo "Deleting message ID: $ID"
+    sudo postsuper -d "$ID"
+done
+
+echo "All messages for $TARGET_EMAIL have been deleted."
+
+ubuntu@ip-172-31-47-153:~/scripts$ ls
+__pycache__  asiancamp.sql  backup.sh  delete.sh  schedule.sh  temp.sh
+ubuntu@ip-172-31-47-153:~/scripts$ cat schedule.sh
+#!/bin/bash
+
+# Navigate to the Laravel project directory
+cd /var/www/crmbackend.medflick.com/old_backup || exit
+
+# Run the Laravel artisan schedule:run command with the correct PHP version
+php artisan schedule:run >> /dev/null 2>&1
+
+ubuntu@ip-172-31-47-153:~/scripts$ cat temp.sh
+#!/bin/bash
+
+# Path to the .env file
+ENV_FILE="/var/www/medflickfd/.env"
+
+# Fetch AWS_SECRET_ACCESS_KEY value from the .env file
+MAIL_PASSWORD=$(grep -E '^MAIL_PASSWORD=' "$ENV_FILE" | cut -d '=' -f2-)
+
+# Check if the value was successfully retrieved
+if [ -n "$MAIL_PASSWORD" ]; then
+    echo "AWS_SECRET_ACCESS_KEY retrieved successfully."
+else
+    echo "AWS_SECRET_ACCESS_KEY not found in $ENV_FILE."
+fi
+
+# Use the temporary variable as needed
+echo "AWS_SECRET_ACCESS_KEY: $MAIL_PASSWORD"
+
