@@ -1,3 +1,6 @@
+cat info.php
+<?php                 ye file or banani padti h kabhi kabhi jab php m code likha hua ho ya php ki jarurat pad rahi ho tab 
+
 ses-smtp-user.20250415-160502
 
 IAM user name
