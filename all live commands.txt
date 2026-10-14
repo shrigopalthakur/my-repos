@@ -1,0 +1,591 @@
+ create mode 100644 scripts/sql/services-id-to-bigint.sql
+ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ history
+    1  sudo apt update
+    2  sudo apt -y install git curl unzip build-essential nginx
+    3  curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+    4  sudo apt -y install nodejs
+    5  node -v   # expect v22.x - Next 16 needs Node 20.9+npm -v
+    6  sudo fallocate -l 2G /swapfile
+    7  sudo chmod 600 /swapfile
+    8  sudo mkswap /swapfile
+    9  sudo swapon /swapfile
+   10  echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+   11  free -h
+   12  df -h
+   13  lsblk
+   14  cd /var/www/
+   15  ls
+   16  sudo mkdir devsiteadmin-mm
+   17  cd devsiteadmin-mm/
+   18  sudo git clone https://github.com/mahattamultimedia/mahattamultimedia-panel
+   19  ls
+   20  cd mahattamultimedia-panel/
+   21  git branch
+   22  ls -al
+   23  sudo vim .env
+   24  pwd
+   25  cd /etc/systemd/system
+   26  ls
+   27  sudo vim devsiteadmin-mm.service
+   28  cd /etc/nginx/sites-available/
+   29  sudo vim devsiteadmin.mahattamedia.com.conf
+   30  cd -
+   31  sudo vim devsiteadmin-mm.service .
+   32  sudo systemctl daemon-reload
+   33  sudo systemctl enable devsiteadmin-mm.service
+   34  sudo systemctl start devsiteadmin-mm.service
+   35  sudo systemctl status devsiteadmin-mm.service
+   36  sudo systemctl start devsiteadmin-mm.service
+   37  sudo systemctl status devsiteadmin-mm.service
+   38  sudo vim devsiteadmin-mm.service
+   39  sudo systemctl start devsiteadmin-mm.service
+   40  sudo systemctl daemon-reload
+   41  sudo systemctl start devsiteadmin-mm.service
+   42  sudo systemctl status devsiteadmin-mm.service
+   43  sudo systemctl daemon-reload
+   44  sudo systemctl restart devsiteadmin-mm.service
+   45  sudo systemctl status devsiteadmin-mm.service
+   46  cd -
+   47  cd ../sites-enabled/
+   48  sudo ln -s ../sites-available/devsiteadmin.mahattamedia.com.conf .
+   49  sudo nginx -t
+   50  sudo systemctl reload nginx
+   51  sudo systemctl restart nginx
+   52  sudo sytemctl status nginax
+   53  sudo systemctl status nginax
+   54  sudo systemctl status nginx
+   55  sudo apt -y install certbot python3-certbot-nginx
+   56  sudo certbot --nginx - devsiteadmin.mahattamedia.com
+   57  sudo systemctl status certbot.timer
+   58  sudo certbot --nginx -d devsiteadmin.mahattamedia.com
+   59  cd /var/www/devsiteadmin-mm/mahattamultimedia-panel/
+   60  npm ci
+   61  sudo npm ci
+   62  npx prisma generate
+   63  sudo npx prisma generate
+   64  sudo npx prisma db push
+   65  cd -
+   66  cd /etc/systemd/system
+   67  sudo vim devsiteadmin-mm.service
+   68  cd -
+   69  sudo systemctl daemon-reload
+   70  cd /var/www/devsiteadmin-mm/mahattamultimedia-panel/
+   71  sudo npx prisma db push
+   72  sudo vim .env
+   73  sudo npx prisma db push
+   74  mysql --version
+   75  sudo apt update
+   76  sudo apt install mysql-client-core-8.0 -y
+   77  sudo npx prisma db push
+   78  sudo vim .env
+   79  sudo npx prisma db push
+   80  mysql -h dev-ip-db-new.ci18uyfr1mrf.ap-south-1.rds.amazonaws.com   -u devsiteadmin-mm   -p
+   81  sudo mysql -h dev-ip-db-new.ci18uyfr1mrf.ap-south-1.rds.amazonaws.com   -u devsiteadmin-mm   -p
+   82  npx prisma db push
+   83  sudo npx prisma db push
+   84  mysql -h dev-ip-db-new.ci18uyfr1mrf.ap-south-1.rds.amazonaws.com   -u admin   -p
+   85  sudo vim .env
+   86  sudo mysql -h dev-ip-db-new.ci18uyfr1mrf.ap-south-1.rds.amazonaws.com   -u devsiteadmin_mm   -p
+   87  sudo npx prisma db push
+   88  mysql -h dev-ip-db-new.ci18uyfr1mrf.ap-south-1.rds.amazonaws.com   -u admin   -p
+   89  sudo mysql -h dev-ip-db-new.ci18uyfr1mrf.ap-south-1.rds.amazonaws.com   -u admin   -p
+   90  sudo\ mysql -h dev-ip-db-new.ci18uyfr1mrf.ap-south-1.rds.amazonaws.com   -u devsiteadmin_mm   -p
+   91  sudo mysql -h dev-ip-db-new.ci18uyfr1mrf.ap-south-1.rds.amazonaws.com   -u devsiteadmin_mm   -p
+   92  mysql -h dev-ip-db-new.ci18uyfr1mrf.ap-south-1.rds.amazonaws.com   -u devsiteadmin_mm   -p
+   93  npm run build
+   94  sudo npm run build
+   95  sudo systemctl status devsiteadmin-mm.service
+   96  sudo systemctl enable --now  devsiteadmin-mm.service
+   97  sudo systemctl status devsiteadmin-mm.service
+   98  curl  http://127.0.0.1:3000
+   99  curl -i  http://127.0.0.1:3000
+  100  curl -I  http://127.0.0.1:3000
+  101  sudo certbot --nginx -d devsiteadmin.mahattamedia.com
+  102  curl http://devsiteadmin.mahattamedia.com/
+  103  sudo certbot --nginx -d devsiteadmin.mahattamedia.com
+  104  sudo rm /etc/nginx/sites-enabled/default
+  105  ls -la /etc/nginx/sites-enabled/
+  106  sudo systemctl reload nginx
+  107  sudo systemctl restart nginx
+  108  sudo certbot --nginx -d devsiteadmin.mahattamedia.com
+  109  dig +short devsiteadmin.mahattamedia.com
+  110  sudo nginx -t
+  111  sudo nginx -T 2>/dev/null | grep -A10 -B2 "devsiteadmin.mahattamedia.com"
+  112  curl -4 https://checkip.amazonaws.com
+  113  dig A devsiteadmin.mahattamedia.com
+  114  cd /etc/nginx/sites-available/
+  115  ls
+  116  sudo mv devsiteadmin.mahattamedia.com.conf devsiteadmin.mahatta.com.conf
+  117  cd ../sites-enabled/
+  118  sudo ln -s ../sites-available/devsiteadmin.mahatta.com.conf .
+  119  ls
+  120  sudo rm -rf devsiteadmin.mahattamedia.com.conf
+  121  cd ..
+  122  cd sites-available/
+  123  sudo vim devsiteadmin.mahatta.com.conf
+  124  sudo nginx -t
+  125  sudo systemctl reload nginx
+  126  sudo systemctl restart nginx
+  127  sudo certbot --nginx -d devsiteadmin.mahatta.com
+  128  curl -i  http://127.0.0.1:3000
+  129  cd /var/www/devsiteadmin-mm/
+  130  ls
+  131  cd mahattamultimedia-panel/
+  132  sudo git status
+  133  sudo git branch
+  134  sudo git pull origin develop
+  135  history
+  136  npx prisma generate
+  137  sudo npx prisma generate
+  138  sudo npx prisma db push\
+  139  sudo npx prisma db push
+  140  cd src/
+  141  ls
+  142  cd app/
+  143  ls -al
+  144  grep -n -B 10 -A 10 "createdAt" prisma/schema.prisma
+  145  cd ..
+  146  grep -n -B 10 -A 10 "createdAt" prisma/schema.prisma
+  147  npx prisma db push --preview-feature
+  148  sudo npx prisma db push --preview-feature
+  149  mysql -h dev-ip-db-new.ci18uyfr1mrf.ap-south-1.rds.amazonaws.com   -u devsiteadmin_mm   -p
+  150  npx prisma --version
+  151  grep -n -B 5 -A 30 "model vendors" prisma/schema.prisma
+  152  npx prisma db pull
+  153  sudo npx prisma db pull
+  154  git diff -- prisma/schema.prisma
+  155  git checkout -- prisma/schema.prisma
+  156  sudo git checkout -- prisma/schema.prisma
+  157  sudo npx prisma migrate diff   --from-url "$DATABASE_URL"   --to-schema-datamodel prisma/schema.prisma   --script > /tmp/prisma-diff.sql
+  158  grep -n -E "ALTER TABLE|CREATE TABLE|DROP TABLE" /tmp/prisma-diff.sql
+  159  grep -n -B 10 -A 30 "createdAt" /tmp/prisma-diff.sql
+  160  sudo grep '^DATABASE_URL' .env
+  161  export DATABASE_URL="$(grep '^DATABASE_URL=' .env | cut -d '=' -f2- | sed 's/^"//;s/"$//')"
+  162  echo "${DATABASE_URL:0:20}..."
+  163  sudo npx prisma migrate diff   --from-url "$DATABASE_URL"   --to-schema-datamodel prisma/schema.prisma   --script > /tmp/prisma-diff.sql
+  164  grep -n -E "ALTER TABLE|CREATE TABLE|DROP TABLE" /tmp/prisma-diff.sql
+  165  grep -n -B 10 -A 30 "createdAt" /tmp/prisma-diff.sql
+  166  git log --oneline -5
+  167  mysql -h dev-ip-db-new.ci18uyfr1mrf.ap-south-1.rds.amazonaws.com   -u devsiteadmin_mm   -p
+  168  git show 24b717b -- prisma/schema.prisma
+  169  git log --oneline -5
+  170  git show 24b717b -- prisma/schema.prisma
+  171  git log --oneline -S'createdAt' -- prisma/schema.prisma
+  172  git log --oneline -S'vendor_services' -- prisma/schema.prisma
+  173  git log --oneline --follow -- prisma/schema.prisma
+  174  git show HEAD:prisma/schema.prisma | grep -n -B 5 -A 35 "model vendors"
+  175  .
+  176  git show --stat 621b2a0
+  177  git show 621b2a0 -- prisma/schema.prisma
+  178  sudo npx prisma db push
+  179  npm list prisma @prisma/client
+  180  cd /var/www/devsiteadmin-mm/
+  181  ls
+  182  cd mahattamultimedia-panel/
+  183  sudo npx prisma db push
+  184  history
+  185  exit
+  186  cd /var/www/devsiteadmin-mm/
+  187  ls
+  188  cd mahattamultimedia-panel/
+  189  ls
+  190  sudo git status
+  191  sudo git branch
+  192  sudo git pull origin develop
+  193  history
+  194  sudo npm ci
+  195  sudo npx prisma generate
+  196  sudo npx prisma db push
+  197  ls
+  198  cat .env
+  199  nginx -t
+  200  sudo nginx -t
+  201  sudo systemctl reload nginx
+  202  sudo systemctl restart nginx
+  203  curl -i  http://127.0.0.1:3000
+  204  history
+  205  curl -i  http://127.0.0.1:3000
+  206  sudo tail -100 /var/log/nginx/error.log
+  207  cd /var/www/devsiteadmin-mm/
+  208  ls
+  209  cd mahattamultimedia-panel/
+  210  sudo git status
+  211  ls
+  212  ls -al
+  213  cd .next/
+  214  ls
+  215  cd ..
+  216  ls
+  217  rm -rf .next
+  218  sudo rm -rf .next
+  219  sudo npm ci
+  220  sudo npm run build
+  221  sudo npm run start
+  222  ls /etc/systemd/system/
+  223  sudo systemctl start devsiteadmin-mm
+  224  sudo systemctl status devsiteadmin-mm
+  225  sudo systemctl reload nginx
+  226  ls -al
+  227  pm2 status
+  228  npm list next
+  229  du -sh .next
+  230  find .next/static/chunks -type f | wc -l
+  231  ls
+  232  cat next.config.ts
+  233  curl -i  http://127.0.0.1:3000
+  234  clear
+  235  find .next/static/chunks -name '42ss-88lwy3tp.js'
+  236  ls -lah .next/static/chunks/ | head
+  237  ls -lah .next
+  238  sudo journalctl -u mahattamedia_mm -n 100 --no-pager
+  239  sudo journalctl -u devsiteadmin_mm -n 100 --no-pager
+  240  sudo journalctl -u devsiteadmin-mm -n 100 --no-pager
+  241  npm run build
+  242  sudo npm run build
+  243  find .next/standalone/.next/static/chunks -name '42ss-88lwy3tp.js'
+  244  cd /etc/systemd/system/
+  245  ls
+  246  cat devsiteadmin-mm.service
+  247  find .next/standalone/.next/static/chunks -name '42ss-88lwy3tp.js'
+  248  cd /var/www/devsiteadmin-mm/
+  249  cd mahattamultimedia-panel/
+  250  find .next/standalone/.next/static/chunks -name '42ss-88lwy3tp.js'
+  251  ls -ld .next .next/standalone .next/standalone/.next
+  252  ls -lah .next/standalone/.next/static/chunks | head
+  253  sudo systemctl restart devsiteadmin-mm.service
+  254  sudo systemctl status devsiteadmin-mm.service --no-pager
+  255  sudo journalctl -u devsiteadmin-mm.service -n 100 --no-pager
+  256  grep -Rni "Content-Security-Policy" . --exclude-dir=node_modules --exclude-dir=.next
+  257  sudo nginx -T | grep -i "content-security-policy"
+  258  grep -n -i "contentSecurityPolicy\|headers" next.config.ts
+  259  grep -R "412" node_modules/react* 2>/dev/null | head
+  260  npm list react react-dom next
+  261  clear
+  262  sed -n '1,120p' src/middleware.ts
+  263  sed -n '1,120p' src/middleware.ts
+  264  curl -I http://127.0.0.1:3000/
+  265  ls
+  266  cd src/
+  267  ls
+  268  sudo vim middleware.ts
+  269  sed -n '1,120p' src/middleware.ts
+  270  cat middleware.ts
+  271  cd ..
+  272  sudo npm run build
+  273  sudo systemctl restart devsiteadmin-mm.service
+  274  sudo npx prisma db push
+  275  sudo npm run build
+  276  sudo systemctl restart devsiteadmin-mm.service
+  277  exit
+  278  telnet smtp-relay.brevo.com 587
+  279  clerar
+  280  clear
+  281  telnet smtp-relay.brevo.com 587
+  282  cd /var/www/
+  283  ls
+  284  cd devsiteadmin-mm/
+  285  sudo git status
+  286  ls
+  287  cd mahattamultimedia-panel/
+  288  sudo git status
+  289  ls
+  290  sudo git pull origin develop
+  291  sudo git add .
+  292  sudo git commit -m "middleware.ts update"
+  293  sudo git pull origin develop
+  294  sudo git config pull.rebase false
+  295  sudo git pull origin develop
+  296  cd src/
+  297  ls
+  298  sudo mv middleware.ts middleware.ts-bak
+  299  cd ..
+  300  sudo git pull origin develop
+  301  sudo git status
+  302  sudo git pull origin develop
+  303  sudo git status
+  304  sudo git diff -- src/middleware.ts
+  305  sudo diff -u src/middleware.ts-bak src/middleware.ts
+  306  sudo mv src/middleware.ts-bak src/middleware.ts
+  307  sudo git status
+  308  sudo ls -l src/middleware.ts-bak
+  309  sudo grep -nE '^(<<<<<<<|=======|>>>>>>>)' src/middleware.ts
+  310  sudo sed -n '25,50p' src/middleware.ts
+  311  sudo git merge --abort
+  312  sudo git status
+  313  sudo git log --oneline -3
+  314  sudo git reset --hard HEAD~1
+  315  cat src/middleware.ts
+  316  sudo git pull origin develop
+  317  history
+  318  sudo npm run build
+  319  sudo npm ci
+  320  DevOps@DESKTOP-VTK4D17 MINGW64 ~
+  321  $ cd Downloads/
+  322  DevOps@DESKTOP-VTK4D17 MINGW64 ~/Downloads
+  323  $ ssh -i devsiteadmin-mahattamedia.pem ubuntu@15.206.67.249
+  324  Welcome to Ubuntu 24.04.4 LTS (GNU/Linux 6.17.0-1017-aws x86_64)
+  325  Expanded Security Maintenance for Applications is not enabled.
+  326  42 updates can be applied immediately.
+  327  3 of these updates are standard security updates.
+  328  To see these additional updates run: apt list --upgradable
+  329  Enable ESM Apps to receive additional future security updates.
+  330  See https://ubuntu.com/esm or run: sudo pro status
+  331  *** System restart required ***
+  332  Last login: Tue Sep 22 10:29:50 2026 from 49.205.178.69
+  333  ubuntu@ip-10-0-0-105:~$ cd /var/www/
+  334  ubuntu@ip-10-0-0-105:/var/www$ ls
+  335  devsiteadmin-mm  html
+  336  ubuntu@ip-10-0-0-105:/var/www$ cd devsiteadmin-mm/
+  337  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm$ sudo git status
+  338  fatal: not a git repository (or any of the parent directories): .git
+  339  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm$ ls
+  340  mahattamultimedia-panel
+  341  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm$ cd mahattamultimedia-panel/
+  342  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ sudo git status
+  343  On branch develop
+  344  Your branch is up to date with 'origin/develop'.
+  345  Changes not staged for commit:
+  346  no changes added to commit (use "git add" and/or "git commit -a")
+  347  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ ls
+  348  AGENTS.md                       TESTING_SUMMARY.md               next-env.d.ts
+  349  AUTH_IMPLEMENTATION.md          TEST_REPORT_INDEX.md             next.config.ts
+  350  AWS_DEPLOYMENT_GUIDE.md         VERIFICATION_REPORT.md           node_modules
+  351  CLAUDE.md                       _gen_ws.py                       package-lock.json
+  352  CUSTOMER_FEATURE_FIX.md         add-test-quotes.sql              package.json
+  353  Caddyfile                       add-video-editing.js             postcss.config.mjs
+  354  DEBUG_INVOICE_GENERATION.md     agent-ctx                        prisma
+  355  DEPLOYMENT_QUICK_REFERENCE.md   bun.lock                         public
+  356  DEPLOYMENT_VALIDATION_TABLE.md  check-services.js                readme.md
+  357  E2E_TEST_REPORT.txt             check-vendor-services.js         regenerate-service-ids.js
+  358  EMAIL_SETUP_SUMMARY.md          check_all_quotes.js              scripts
+  359  FINAL_DEPLOYMENT_SUMMARY.md     check_db_status.js               seed-categories.js
+  360  FINAL_REPORT_SUMMARY.txt        check_quotes.js                  seed-services.js
+  361  IMPLEMENTATION_QUICK_START.md   check_recent_quotes.js           src
+  362  IMPLEMENTATION_SUMMARY.md       components.json                  sync_services.js
+  363  INVOICE_FIXES_SUMMARY.md        create_invoices_table.sql        tailwind.config.ts
+  364  INVOICE_LOADING_FIX.md          db                               test_api_save.js
+  365  LOGOUT_FIX.md                   download                         test_post_api.js
+  366  MENU_ITEMS_ENABLED.md           eslint.config.mjs                test_quotation_save.js
+  367  MIGRATION_DEPLOYMENT_GUIDE.md   examples                         test_save_and_verify.js
+  368  MMS_Project.zip                 fix-duplicate-ids.js             tests
+  369  PRODUCTION_CHECKLIST.md         migrate-vendor-services.js       tool-results
+  370  PRODUCTION_FIX_REPORT.md        mini-services                    tsconfig.json
+  371  QUICK_EMAIL_FIX.txt             mock-data.generated.sql          upload
+  372  QUICK_TEST.txt                  mock-data.remaining-inserts.sql  verify-setup.js
+  373  QUOTATION_EMAIL_SETUP.md        mock-data.sql                    verify_and_test.js
+  374  SETUP_EMAIL.md                  mock-data.with_schema.sql        verify_services.js
+  375  TESTING_GUIDE.md                mock-data.xampp.sql              worklog.md
+  376  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ sudo git pull origin develop
+  377  Username for 'https://github.com': techmahatta
+  378  Password for 'https://techmahatta@github.com':
+  379  remote: Enumerating objects: 589, done.
+  380  remote: Counting objects: 100% (589/589), done.
+  381  remote: Compressing objects: 100% (265/265), done.
+  382  remote: Total 589 (delta 322), reused 533 (delta 270), pack-reused 0 (from 0)
+  383  Receiving objects: 100% (589/589), 831.30 KiB | 3.68 MiB/s, done.
+  384  Resolving deltas: 100% (322/322), completed with 36 local objects.
+  385  From https://github.com/mahattamultimedia/mahattamultimedia-panel
+  386  Updating 5b0654d..725ba0c
+  387  error: Your local changes to the following files would be overwritten by merge:
+  388  Please commit your changes or stash them before you merge.
+  389  Aborting
+  390  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ sudo git add .
+  391  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ sudo git commit -m "middleware.ts update"
+  392  [develop 4662299] middleware.ts update
+  393  Your name and email address were configured automatically based
+  394  on your username and hostname. Please check that they are accurate.
+  395  You can suppress this message by setting them explicitly. Run the
+  396  following command and follow the instructions in your editor to edit
+  397  your configuration file:
+  398  After doing this, you may fix the identity used for this commit with:
+  399  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ sudo git pull origin develop
+  400  Username for 'https://github.com': techmahatta
+  401  Password for 'https://techmahatta@github.com':
+  402  From https://github.com/mahattamultimedia/mahattamultimedia-panel
+  403  hint: You have divergent branches and need to specify how to reconcile them.
+  404  hint: You can do so by running one of the following commands sometime before
+  405  hint: your next pull:
+  406  hint:
+  407  hint:   git config pull.rebase false  # merge
+  408  hint:   git config pull.rebase true   # rebase
+  409  hint:   git config pull.ff only       # fast-forward only
+  410  hint:
+  411  hint: You can replace "git config" with "git config --global" to set a default
+  412  hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+  413  hint: or --ff-only on the command line to override the configured default per
+  414  hint: invocation.
+  415  fatal: Need to specify how to reconcile divergent branches.
+  416  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ ^C
+  417  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$   git config pull.rebase false
+  418  error: could not lock config file .git/config: Permission denied
+  419  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ sudo git config pull.rebase false
+  420  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ sudo git pull origin develop
+  421  Username for 'https://github.com': techmahatta
+  422  Password for 'https://techmahatta@github.com':
+  423  From https://github.com/mahattamultimedia/mahattamultimedia-panel
+  424  Auto-merging src/middleware.ts
+  425  CONFLICT (content): Merge conflict in src/middleware.ts
+  426  Automatic merge failed; fix conflicts and then commit the result.
+  427  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ cd src/
+  428  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel/src$ ls
+  429  app  components  hooks  lib  middleware.ts
+  430  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel/src$ sudo mv middleware.ts middleware.ts-bak
+  431  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel/src$ cd ..
+  432  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ sudo git pull origin develop
+  433  error: Pulling is not possible because you have unmerged files.
+  434  hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+  435  hint: as appropriate to mark resolution and make a commit.
+  436  fatal: Exiting because of an unresolved conflict.
+  437  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ sudo git status
+  438  On branch develop
+  439  Your branch and 'origin/develop' have diverged,
+  440  and have 1 and 31 different commits each, respectively.
+  441  You have unmerged paths.
+  442  Changes to be committed:
+  443  Unmerged paths:
+  444  Untracked files:
+  445  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ sudo git pull origin develop
+  446  error: Pulling is not possible because you have unmerged files.
+  447  hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+  448  hint: as appropriate to mark resolution and make a commit.
+  449  fatal: Exiting because of an unresolved conflict.
+  450  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ ^C
+  451  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ sudo git status
+  452  On branch develop
+  453  Your branch and 'origin/develop' have diverged,
+  454  and have 1 and 31 different commits each, respectively.
+  455  You have unmerged paths.
+  456  Changes to be committed:
+  457  Unmerged paths:
+  458  Untracked files:
+  459  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ ^C
+  460  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ sudo git diff -- src/middleware.ts
+  461  diff --cc src/middleware.ts
+  462  index 4547942,856ddbd..0000000
+  463  deleted file mode 100644,100644
+  464  --- a/src/middleware.ts
+  465  +++ /dev/null
+  466  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ ^C
+  467  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ sudo diff -u src/middleware.ts-bak src/middleware.ts
+  468  diff: src/middleware.ts: No such file or directory
+  469  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ ^C
+  470  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ sudo mv src/middleware.ts-bak src/middleware.ts
+  471  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ sudo git status
+  472  On branch develop
+  473  Your branch and 'origin/develop' have diverged,
+  474  and have 1 and 31 different commits each, respectively.
+  475  You have unmerged paths.
+  476  Changes to be committed:
+  477  Unmerged paths:
+  478  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ ^C
+  479  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ sudo ls -l src/middleware.ts-bak
+  480  ls: cannot access 'src/middleware.ts-bak': No such file or directory
+  481  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ sudo grep -nE '^(<<<<<<<|=======|>>>>>>>)' src/middleware.ts
+  482  36:<<<<<<< HEAD
+  483  38:=======
+  484  40:>>>>>>> 725ba0ccfa90dac9d4bb2c3d9a63962bc74b2dd4
+  485  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ ^C
+  486  ubuntu@ip-10-0-0-105:/var/www/devsiteadmin-mm/mahattamultimedia-panel$ sudo sed -n '25,50p' src/middleware.ts
+  487  cat src/middleware.ts
+  488  sudo vim src/middleware.ts
+  489  history
+  490  sudo systemctl restart devsiteadmin-mm.service
+  491  exit
+  492  sudo git status
+  493  cd /var/www/devsiteadmin-mm/
+  494  ls
+  495  cd mahattamultimedia-panel/
+  496  sudo git status
+  497  sudo vim src/middleware.ts
+  498  sudo git pull origin develop
+  499  cd /var/www/devsiteadmin-mm/mahattamultimedia-panel/
+  500  sudo git status
+  501  history
+  502  sudo npm ci
+  503  sudo npm run build
+  504  sudo systemctl status devsiteadmin-mm.service
+  505  sudo systemctl restart devsiteadmin-mm.service
+  506  sudo systemctl start devsiteadmin-mm.service
+  507  exit
+  508  cd /var/www/devsiteadmin-mm/mahattamultimedia-panel/
+  509  sudo git status
+  510  history
+  511  sudo git pull origin develop
+  512  sudo npm ci
+  513  sudo npm run build
+  514  sudo vim .env
+  515  ls
+  516  cd src/
+  517  ls
+  518  cd ..
+  519  cat .env
+  520  sudo journalctl -u devsiteadmin-mm.service
+  521  sudo journalctl -u devsiteadmin-mm.service  -n 200 --no-pager
+  522  sudo npx prisma db push
+  523  grep -n -A30 -B5 "model Session" prisma/schema.prisma
+  524  grep -n -A30 -B5 "model Sessions" prisma/schema.prisma
+  525  cd /var/www/devsiteadmin-mm/
+  526  ls
+  527  cd mahattamultimedia-panel/
+  528  ls
+  529  cat .env
+  530  mysql -h dev-ip-db-new.ci18uyfr1mrf.ap-south-1.rds.amazonaws.com -u devsiteadmin_mm devsiteadmin_mahattamedia
+  531  mysql -h dev-ip-db-new.ci18uyfr1mrf.ap-south-1.rds.amazonaws.com -u devsiteadmin_mm
+  532  mysql -h dev-ip-db-new.ci18uyfr1mrf.ap-south-1.rds.amazonaws.com -u devsiteadmin_mahattamedia -p
+  533  mysql -h dev-ip-db-new.ci18uyfr1mrf.ap-south-1.rds.amazonaws.com -u devsiteadmin_mm
+  534  mysql -h dev-ip-db-new.ci18uyfr1mrf.ap-south-1.rds.amazonaws.com -u devsiteadmin_mm -p
+  535  sudo vim .env
+  536  exit
+  537  cd /var/www/
+  538  ls
+  539  cd devsiteadmin-mm/
+  540  ls
+  541  cd mahattamultimedia-panel/
+  542  ls
+  543  sudo git status
+  544  sudo git branch
+  545  sudo git pull origin develop
+  546  sudo git status
+  547  history
+  548  sudo npm ci
+  549  sudo npm run build
+  550  sudo systemctl status devsiteadmin-mm.service
+  551  sudo systemctl reload devsiteadmin-mm.service
+  552  sudo systemctl start devsiteadmin-mm.service
+  553  sudo systemctl status devsiteadmin-mm.service
+  554  clear
+  555  sudo npm ci
+  556  sudo npx prisma generate
+  557  clear
+  558  exit
+  559  cd /var/www/devsiteadmin-mm/mahattamultimedia-panel/
+  560  sudo git status
+  561  sudo git branch
+  562  sudo git pull origin develop
+  563  sudo npm ci
+  564  history
+  565  sudo npx prisma generate
+  566  sudo npx prisma db push
+  567  history
+  568  cat .env
+  569  mysql -h dev-ip-db-new.ci18uyfr1mrf.ap-south-1.rds.amazonaws.com -u devsiteadmin_mm -p
+  570  cd /var/www/
+  571  ll
+  572  cd html/
+  573  ll
+  574  cd ..
+  575  cd devsiteadmin-mm/
+  576  l
+  577  ll
+  578  cd mahattamultimedia-panel/
+  579  ll
+  580  cd ..
+  581  ll
+  582  sudo git status
+  583  sudo git branch
+  584  cd mahattamultimedia-panel/
+  585  sudo git status
+  586  sudo git branch
+  587  ll
+  588  sudo git pull origin develop
+  589  history
