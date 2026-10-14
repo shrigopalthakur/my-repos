@@ -1,0 +1,87 @@
+shrigopal_mahatta_com@prod-siteadmin:/var/www/siteadmin/frontend$ history           <--- Site Admin ke Frontend ko Live karne ke Liye
+    1  cd /var/www/
+    2  cd siteadmin/
+    3  ls -la
+    4  cd ..
+    5  ls -la
+    6  cd siteadmin/
+    7  ls -la
+    8  cd frontend
+    9  ls la
+   10  ls -la
+   11  cd
+   12  ls -la ---------------------------------------------><--- Site Admin ke Frontend ko Live karne ke Liye sanse pahle zip file ko upload kar Lo server par 
+   13  mv browser.11.0.zip /var/www/siteadmin/ ------------><--- phir usko site admin ya is bhi project ka ho uske path par copy/move kar do or phir 
+   14  sudo mv browser.11.0.zip /var/www/siteadmin/ -------><--- uss path par jakar 
+   15  cd /var/www/siteadmin/
+   16  ls -la
+   17  sudo cp -r frontend frontend-backup-13 -------------><--- existing folder ka Backup Lo or phir                
+   19  ls -la
+   20  sudo mv frontend frontend-old ----------------------><--- uss existing folder ka naam change kar do ya delete kar do (waise naam change karna 
+   21  ls -la                                                    sahi rahta rahta hai jab tak hmara nya folder sahi se kaam na kare tab tak)
+   22  sudo unzip browser.11.0.zip ------------------------><--- phir jo nya folder banaya hai usko unzip kar Le /var/www/siteadmin/ iss location par 
+   24  ls -la ---------------------------------------------><--- phir check kare ki sab kuchh hai ya nhi isme yaha par 
+   25  sudo mv browser frontend ---------------------------><--- or phir agar jo folder download kiya tha nye code wala wo agar frontend naam ka hi hai to koi 
+   26  ls -la                                                    baat nhi or agar kuchh or naam hai to uska naam change karo frontend
+   27  cd frontend ----------------------------------------><--- frontend folder m jake dekho code sahi hai ya nhi hai 
+   28  ls -la
+   29  cd ..  ---------------------------------------------><--- ek step back jao /var/www/siteadmin/ par jaha frontend folder hai  
+   30  sudo chmod 755 frontend ----------------------------><--- iski permission setup karo 755 
+   31  ls -la ---------------------------------------------><--- or ho gya frontend Live 
+   32  history 
+
+
+
+
+
+
+Backend Ko Live karne ke Liye :-
+   
+shrigopal_mahatta_com@prod-siteadmin:/var/www/siteadmin$ cd backend
+   shrigopal_mahatta_com@prod-siteadmin:/var/www/siteadmin/backend$ sudo git status
+   On branch indiapicture-journey
+   Your branch is up to date with 'origin/indiapicture-journey'.
+
+   nothing to commit, working tree clean
+2. shrigopal_mahatta_com@prod-siteadmin:/var/www/siteadmin/backend$ sudo git branch
+   * indiapicture-journey
+     master
+3. shrigopal_mahatta_com@prod-siteadmin:/var/www/siteadmin/backend$ sudo git pull origin indiapicture-journey
+   Username for 'https://github.com':  techmahatta
+   Password for 'https://%20techmahatta@github.com': 
+   From https://github.com/mahattamultimedia/siteadmin-new-backend
+   * branch            indiapicture-journey -> FETCH_HEAD
+   Already up to date.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sudo npm ci
+npx prisma generate
+sudo npx prisma db push
+sudo npm run build
