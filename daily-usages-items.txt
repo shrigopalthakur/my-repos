@@ -1,0 +1,120 @@
+ssh -i ~/.ssh/dev-solr-indian.pem root@13.206.92.125        <--- solr wale server ko access karne ke liye
+
+ cd ~/Downloads
+./download_final.sh          <--- sabhi CKUM wali images ko ek sath download karne ke liye file ko run karne ke liye
+
+
+[3000/3030] CKUM4656.JPG
+z   OK
+[3001/3030] CKUM4657.JPG
+z   OK
+[3002/3030] CKUM4658.JPG
+z   OK
+[3003/3030] CKUM4659.JPG
+z   OK
+[3004/3030] CKUM4660.JPG
+z   OK
+[3005/3030] CKUM4661.JPG
+z   OK
+[3006/3030] CKUM4662.JPG
+z   OK
+[3007/3030] CKUM4663.JPG
+z   OK
+[3008/3030] CKUM4664.JPG
+z   OK
+[3009/3030] CKUM4665.JPG
+z   OK
+[3010/3030] CKUM4666.JPG
+z   OK
+[3011/3030] CKUM4667.JPG
+z   OK
+[3012/3030] CKUM4668.JPG
+z   FAILED: gs://indiapicture-collections/Zero_03/14/CKUM4668.JPG
+[3013/3030] CKUM4672.JPG
+z   FAILED: gs://indiapicture-collections/ip_black/50/CKUM4672.JPG
+[3014/3030] CKUM4678.JPG
+z   FAILED: gs://indiapicture-collections/ip_wild/14/CKUM4678.JPG
+[3015/3030] CKUM4673.JPG
+z   FAILED: gs://indiapicture-collections/ip_black/2/CKUM4673.JPG
+[3016/3030] CKUM4674.JPG
+z   FAILED: gs://indiapicture-collections/ip_black/14/CKUM4674.JPG
+[3017/3030] CKUM4675.JPG
+z   FAILED: gs://indiapicture-collections/ip_black/2/CKUM4675.JPG
+[3018/3030] CKUM4676.JPG
+z   FAILED: gs://indiapicture-collections/ip_black/50/CKUM4676.JPG
+[3019/3030] CKUM4677.JPG
+z   FAILED: gs://indiapicture-collections/ip_black/50/CKUM4677.JPG
+[3020/3030] CKUM4679.JPG
+z   FAILED: gs://indiapicture-collections/ip_wild/2/CKUM4679.JPG
+[3021/3030] CKUM4680.JPG
+z   FAILED: gs://indiapicture-collections/ip_wild/2/CKUM4680.JPG
+[3022/3030] CKUM4681.JPG
+z   FAILED: gs://indiapicture-collections/ip_wild/2/CKUM4681.JPG
+[3023/3030] CKUM4682.JPG
+
+
+
+
+
+
+
+
+
+
+[3008/3030] CKUM4664.JPG
+z   OK
+[3009/3030] CKUM4665.JPG
+z   OK
+[3010/3030] CKUM4666.JPG
+z   OK
+[3011/3030] CKUM4667.JPG
+z   OK
+[3012/3030] CKUM4668.JPG
+z   FAILED: gs://indiapicture-collections/Zero_03/14/CKUM4668.JPG
+[3013/3030] CKUM4672.JPG
+z   FAILED: gs://indiapicture-collections/ip_black/50/CKUM4672.JPG
+[3014/3030] CKUM4678.JPG
+z   FAILED: gs://indiapicture-collections/ip_wild/14/CKUM4678.JPG
+[3015/3030] CKUM4673.JPG
+z   FAILED: gs://indiapicture-collections/ip_black/2/CKUM4673.JPG
+[3016/3030] CKUM4674.JPG
+z   FAILED: gs://indiapicture-collections/ip_black/14/CKUM4674.JPG
+[3017/3030] CKUM4675.JPG
+z   FAILED: gs://indiapicture-collections/ip_black/2/CKUM4675.JPG
+[3018/3030] CKUM4676.JPG
+z   FAILED: gs://indiapicture-collections/ip_black/50/CKUM4676.JPG
+[3019/3030] CKUM4677.JPG
+z   FAILED: gs://indiapicture-collections/ip_black/50/CKUM4677.JPG
+[3020/3030] CKUM4679.JPG
+z   FAILED: gs://indiapicture-collections/ip_wild/2/CKUM4679.JPG
+[3021/3030] CKUM4680.JPG
+z   FAILED: gs://indiapicture-collections/ip_wild/2/CKUM4680.JPG
+[3022/3030] CKUM4681.JPG
+z   FAILED: gs://indiapicture-collections/ip_wild/2/CKUM4681.JPG
+[3023/3030] CKUM4682.JPG
+z   FAILED: gs://indiapicture-collections/ip_wild/14/CKUM4682.JPG
+[3024/3030] CKUM4683.JPG
+z   FAILED: gs://indiapicture-collections/ip_wild/50/CKUM4683.JPG
+[3025/3030] CKUM4684.JPG
+z   FAILED: gs://indiapicture-collections/ip_wild/50/CKUM4684.JPG
+[3026/3030] CKUM4685.JPG
+z   FAILED: gs://indiapicture-collections/ip_wild/50/CKUM4685.JPG
+[3027/3030] CKUM4686.JPG
+z   FAILED: gs://indiapicture-collections/ip_wild/50/CKUM4686.JPG
+[3028/3030] CKUM4687.JPG
+z   FAILED: gs://indiapicture-collections/ip_wild/50/CKUM4687.JPG
+[3029/3030] CKUM4688.JPG
+z   FAILED: gs://indiapicture-collections/ip_wild/2/CKUM4688.JPG
+
+==========================================
+  DONE
+==========================================
+Downloaded: 3010 files
+Total size: 21G
+Log       : /c/Users/Dr/Downloads/download_log.txt
+Failed    : 18
+Invalid   : 1
+==========================================
+z
+Dr@DESKTOP-KSVP1JK UCRT64 ~/Downloads
+$
